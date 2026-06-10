@@ -1244,6 +1244,175 @@ section.block .lead{color:var(--ink-2);font-size:13.5px;margin-bottom:24px;max-w
 @media(min-width:768px){.story-block h3{font-size:18px}}
 .story-block p{color:var(--ink-2);font-size:13.5px;line-height:1.7;margin-bottom:8px}
 
+/* === Interactive Product Details (tabs + stats + cards) === */
+.pd-tabs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-bottom:24px;
+}
+@media(max-width:560px){.pd-tabs{grid-template-columns:repeat(2,1fr);gap:6px}}
+.pd-tab{
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:14px 12px;
+  cursor:pointer;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+  transition:all 0.22s ease;
+  font-family:inherit;
+  min-height:88px;
+  position:relative;
+  overflow:hidden;
+}
+.pd-tab:hover{border-color:var(--ink-3);transform:translateY(-2px)}
+.pd-tab.active{
+  border-color:var(--brand-red);
+  background:var(--bg-pale);
+}
+.pd-tab.active::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:var(--brand-red);
+}
+.pd-tab-icon{
+  font-size:22px;
+  color:var(--brand-red);
+  line-height:1;
+  margin-bottom:2px;
+}
+.pd-tab-label{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:0.02em}
+.pd-tab-sub{font-size:10.5px;color:var(--ink-3);font-weight:400;line-height:1.3}
+
+.pd-panel{display:none;animation:pdFadeIn 0.3s ease}
+.pd-panel.active{display:block}
+@keyframes pdFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.pd-hero{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  margin-bottom:18px;
+}
+@media(min-width:680px){.pd-hero{grid-template-columns:280px 1fr;align-items:center}}
+.pd-hero-img{aspect-ratio:1;background:var(--bg-soft);overflow:hidden}
+.pd-hero-img img{width:100%;height:100%;object-fit:cover}
+.pd-hero-text{padding:0 22px 22px}
+@media(min-width:680px){.pd-hero-text{padding:22px 22px}}
+.pd-hero-text h3{font-family:'Poppins',sans-serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.pd-hero-text p{font-size:13.5px;color:var(--ink-2);line-height:1.65}
+
+.pd-stat-row{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+  margin-bottom:18px;
+}
+@media(min-width:560px){.pd-stat-row{grid-template-columns:repeat(4,1fr)}}
+.pd-stat{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:18px 12px;
+  text-align:center;
+  transition:all 0.22s ease;
+}
+.pd-stat:hover{
+  border-color:var(--brand-red);
+  background:var(--bg-pale);
+  transform:translateY(-2px);
+}
+.pd-stat-num{
+  display:block;
+  font-size:22px;
+  font-weight:700;
+  color:var(--brand-red);
+  line-height:1.1;
+  margin-bottom:4px;
+  letter-spacing:-0.005em;
+}
+.pd-stat-num small{font-size:11px;font-weight:500;color:var(--ink-2);margin-left:1px}
+.pd-stat-label{font-size:10.5px;color:var(--ink-2);letter-spacing:0.04em;text-transform:uppercase;font-weight:500}
+
+.pd-card-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-bottom:14px;
+}
+@media(min-width:680px){.pd-card-grid{grid-template-columns:1fr 1fr}}
+.pd-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:18px;
+  transition:all 0.22s ease;
+}
+.pd-card:hover{border-color:var(--brand-red);box-shadow:0 4px 16px rgba(191,19,4,0.06)}
+.pd-card-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding-bottom:12px;
+  margin-bottom:12px;
+  border-bottom:1px solid var(--line);
+  font-size:14px;
+}
+.pd-card-head b{font-weight:600;color:var(--ink)}
+.pd-card-icon{
+  width:30px;
+  height:30px;
+  background:var(--bg-pale);
+  color:var(--brand-red);
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  flex-shrink:0;
+}
+.pd-list{list-style:none;padding:0;margin:0}
+.pd-list li{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:7px 0;
+  font-size:13px;
+  border-bottom:1px dashed var(--line);
+  gap:10px;
+}
+.pd-list li:last-child{border-bottom:none}
+.pd-list li span{color:var(--ink-3);font-weight:500;font-size:12px}
+.pd-list li b{color:var(--ink);font-weight:600;text-align:right}
+
+.pd-meta-strip{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:12px 14px;
+  background:var(--bg-soft);
+  border-radius:var(--radius-md);
+  font-size:11.5px;
+  color:var(--ink-2);
+  margin-top:8px;
+}
+.pd-meta-strip span b{color:var(--ink);font-weight:600;margin-right:4px}
+.pd-meta-strip span{padding-right:14px;border-right:1px solid var(--line);line-height:1.4}
+.pd-meta-strip span:last-child{border-right:none}
+@media(max-width:560px){
+  .pd-meta-strip span{border-right:none;padding-right:0;width:100%}
+}
+
 /* === Specs grouped (Lucira-style) === */
 .spec-wrap{background:#fff;border:1px solid var(--line);overflow:hidden}
 .spec-sku{padding:14px 18px;border-bottom:1px solid var(--line);font-size:12px;color:var(--ink-3);background:var(--bg-soft);letter-spacing:0.02em}
@@ -1384,6 +1553,34 @@ section.block .lead{color:var(--ink-2);font-size:13.5px;margin-bottom:24px;max-w
   font-size:15px;
   font-weight:700;
   color:var(--ink);
+}
+.price-line.subtotal{
+  padding-top:10px;
+  margin-top:4px;
+  border-top:1px dashed var(--line);
+}
+.price-line.subtotal .pl-label,
+.price-line.subtotal .pl-value{
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink-2);
+}
+.price-section-label{
+  font-size:10px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--brand-red);
+  margin-top:14px;
+  margin-bottom:4px;
+}
+.price-section-label:first-of-type{margin-top:0}
+.pl-sub{
+  display:block;
+  font-size:10.5px;
+  color:var(--ink-3);
+  margin-top:2px;
+  font-weight:400;
 }
 
 /* "Save on this jewellery" banner — OUTSIDE the tabs, like Lucira */
@@ -2182,27 +2379,37 @@ body{padding-bottom:72px}
           <button class="price-tab" data-tab="compare">Price Comparison</button>
         </div>
 
-        <!-- BREAKUP — Lucira flex-row layout, with full diamond detail (centre + accents) -->
+        <!-- BREAKUP — REAL numbers from TD's current page -->
         <div class="price-panel active" id="panel-breakup">
+          <div class="price-section-label">Gold</div>
           <div class="price-line">
-            <div class="pl-left"><span class="pl-label">14K Gold (5.10g @ ₹7,451/g)</span></div>
-            <div class="pl-right"><span class="pl-value">₹ 37,990</span></div>
+            <div class="pl-left"><span class="pl-label">14K Yellow Gold</span><span class="pl-sub">2.25g net weight</span></div>
+            <div class="pl-right"><span class="pl-value">₹ 20,992</span></div>
+          </div>
+
+          <div class="price-section-label">Diamond</div>
+          <div class="price-line">
+            <div class="pl-left"><span class="pl-label">EF VS · Centre (1 Nos)</span><span class="pl-sub">3.00 ct · Portuguese cut · IGI</span></div>
+            <div class="pl-right"><span class="pl-value">₹ 1,95,000</span></div>
           </div>
           <div class="price-line">
-            <div class="pl-left"><span class="pl-label">Centre Diamond (1 pcs, 3.00ct)</span><span class="pl-discount">25% OFF</span></div>
-            <div class="pl-right"><span class="pl-strike">₹ 1,95,000</span><span class="pl-value">₹ 1,46,250</span></div>
+            <div class="pl-left"><span class="pl-label">EF VVS/VS · Accents (6 Nos)</span><span class="pl-sub">0.63 ct total · Marquise</span></div>
+            <div class="pl-right"><span class="pl-value">₹ 22,050</span></div>
           </div>
+
+          <div class="price-section-label">Making</div>
           <div class="price-line">
-            <div class="pl-left"><span class="pl-label">Petal Diamonds (6 pcs, 0.63ct)</span><span class="pl-discount">25% OFF</span></div>
-            <div class="pl-right"><span class="pl-strike">₹ 45,000</span><span class="pl-value">₹ 33,750</span></div>
+            <div class="pl-left"><span class="pl-label">Making Charges</span><span class="pl-sub">Tulip prong setting · petal halo</span></div>
+            <div class="pl-right"><span class="pl-value">₹ 4,508</span></div>
           </div>
-          <div class="price-line">
-            <div class="pl-left"><span class="pl-label">Making Charges</span><span class="pl-discount">30% OFF</span></div>
-            <div class="pl-right"><span class="pl-strike">₹ 35,073</span><span class="pl-value">₹ 24,551</span></div>
+
+          <div class="price-line subtotal">
+            <span class="pl-label">Net Value</span>
+            <span class="pl-value">₹ 2,42,550</span>
           </div>
           <div class="price-line">
             <div class="pl-left"><span class="pl-label">GST (3%)</span></div>
-            <div class="pl-right"><span class="pl-strike">₹ 9,393</span><span class="pl-value">₹ 7,285</span></div>
+            <div class="pl-right"><span class="pl-value">₹ 7,276</span></div>
           </div>
           <div class="price-line total">
             <span class="pl-label">Total</span>
@@ -2224,9 +2431,9 @@ body{padding-bottom:72px}
               </thead>
               <tbody>
                 <tr>
-                  <td><span class="dc-icon">₹</span>Price</td>
-                  <td>₹ 1,80,000</td>
-                  <td>₹ 6,30,000</td>
+                  <td><span class="dc-icon">₹</span>Diamond Price</td>
+                  <td>₹ 2,17,050</td>
+                  <td>₹ 7,59,675</td>
                 </tr>
                 <tr>
                   <td><span class="dc-icon">◆</span>Carat</td>
@@ -2240,7 +2447,7 @@ body{padding-bottom:72px}
                 </tr>
                 <tr>
                   <td><span class="dc-icon">◇</span>Clarity</td>
-                  <td>VVS / VS</td>
+                  <td>VS &amp; VVS/VS</td>
                   <td>SI</td>
                 </tr>
                 <tr>
@@ -2250,7 +2457,7 @@ body{padding-bottom:72px}
                 </tr>
                 <tr class="total-row">
                   <td>Total Saving</td>
-                  <td class="save">₹ 4,50,000</td>
+                  <td class="save">₹ 5,42,625</td>
                   <td class="zero">₹ 0</td>
                 </tr>
               </tbody>
@@ -2263,7 +2470,7 @@ body{padding-bottom:72px}
       <!-- Save on this jewellery banner — OUTSIDE tabs, like Lucira -->
       <div class="save-banner">
         <span class="save-banner-label">Save on this jewellery</span>
-        <span class="save-banner-amount">₹ 70,522</span>
+        <span class="save-banner-amount">₹ 26,711</span>
       </div>
 
       <!-- Certified Quality Guaranteed — Lucira-exact block with cert logos -->
@@ -2415,79 +2622,217 @@ body{padding-bottom:72px}
   </div>
 </section>
 
-<!-- SPECS — grouped (Lucira-style) -->
+<!-- SPECS — interactive tabbed component with icon stat cards -->
 <section class="block">
   <div class="container">
-    <h2>Product details</h2>
-    <p class="lead">A complete specification of the ring — metal, dimensions, diamond grading, certification.</p>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:18px">
+      <div>
+        <div class="product-tag">Every detail</div>
+        <h2 style="margin-bottom:6px">Product details</h2>
+        <p class="lead" style="margin-bottom:0">Tap any section to explore — diamond grading, metal craftsmanship, setting, and certification.</p>
+      </div>
+      <div style="font-size:11.5px;color:var(--ink-3);font-family:monospace;background:var(--bg-soft);padding:8px 14px;border-radius:var(--radius-md);white-space:nowrap">SKU · RN/TDPORT/7/Y/4</div>
+    </div>
 
-    <div class="spec-wrap">
-      <div class="spec-sku">SKU: <b>TD-MP-3CT-PORT-001</b></div>
+    <!-- Tab triggers -->
+    <div class="pd-tabs" role="tablist">
+      <button class="pd-tab active" data-pd-tab="diamond">
+        <span class="pd-tab-icon">◆</span>
+        <span class="pd-tab-label">Diamond</span>
+        <span class="pd-tab-sub">3.63 ct · EF VS</span>
+      </button>
+      <button class="pd-tab" data-pd-tab="metal">
+        <span class="pd-tab-icon">●</span>
+        <span class="pd-tab-label">Metal</span>
+        <span class="pd-tab-sub">14K · 2.25g</span>
+      </button>
+      <button class="pd-tab" data-pd-tab="setting">
+        <span class="pd-tab-icon">✦</span>
+        <span class="pd-tab-label">Setting</span>
+        <span class="pd-tab-sub">4-prong tulip</span>
+      </button>
+      <button class="pd-tab" data-pd-tab="cert">
+        <span class="pd-tab-icon">✓</span>
+        <span class="pd-tab-label">Certification</span>
+        <span class="pd-tab-sub">IGI · BIS</span>
+      </button>
+    </div>
 
-      <div class="spec-group">
-        <div class="spec-group-title">Metal</div>
-        <div class="spec-fields">
-          <div class="spec-field"><dt>Purity</dt><dd>14KT</dd></div>
-          <div class="spec-field"><dt>Color</dt><dd>Yellow Gold</dd></div>
-          <div class="spec-field"><dt>Net Wt</dt><dd>4.85 g</dd></div>
-          <div class="spec-field"><dt>Hallmark</dt><dd>BIS · 14K</dd></div>
+    <!-- DIAMOND panel -->
+    <div class="pd-panel active" id="pd-diamond">
+      <div class="pd-hero">
+        <div class="pd-hero-img"><img src="https://truediamond.in/cdn/shop/files/1_da71f196-1b75-43d9-84f3-ad2b248b2f81.png?v=1776735389&width=500" alt="" loading="lazy"></div>
+        <div class="pd-hero-text">
+          <h3>The diamonds</h3>
+          <p>One 3.00 ct Portuguese centre stone — the world's brightest cut — surrounded by 6 marquise petals, all lab grown, all IGI certified, all laser-inscribed.</p>
         </div>
       </div>
 
-      <div class="spec-group">
-        <div class="spec-group-title">Dimension</div>
-        <div class="spec-fields">
-          <div class="spec-field"><dt>Gross Wt</dt><dd>5.10 g</dd></div>
-          <div class="spec-field"><dt>Ring Size</dt><dd>12 IND (53.4 mm)</dd></div>
-          <div class="spec-field"><dt>Head Width</dt><dd>13.2 mm</dd></div>
-          <div class="spec-field"><dt>Band Width</dt><dd>1.8 mm</dd></div>
+      <div class="pd-stat-row">
+        <div class="pd-stat"><span class="pd-stat-num">3.63<small>ct</small></span><span class="pd-stat-label">Total carat weight</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">EF</span><span class="pd-stat-label">Colour grade</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">VS</span><span class="pd-stat-label">Clarity grade</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">161<small>facets</small></span><span class="pd-stat-label">Portuguese cut</span></div>
+      </div>
+
+      <div class="pd-card-grid">
+        <div class="pd-card">
+          <div class="pd-card-head"><span class="pd-card-icon">◆</span><b>Centre stone</b></div>
+          <ul class="pd-list">
+            <li><span>Shape</span><b>Portuguese cut</b></li>
+            <li><span>Carat</span><b>3.00 ct</b></li>
+            <li><span>Quantity</span><b>1 piece</b></li>
+            <li><span>Quality</span><b>EF · VS</b></li>
+            <li><span>Origin</span><b>Lab grown</b></li>
+            <li><span>Facets</span><b>161</b></li>
+          </ul>
+        </div>
+        <div class="pd-card">
+          <div class="pd-card-head"><span class="pd-card-icon">✦</span><b>Petal accents</b></div>
+          <ul class="pd-list">
+            <li><span>Shape</span><b>Marquise</b></li>
+            <li><span>Carat</span><b>0.63 ct total</b></li>
+            <li><span>Quantity</span><b>6 pieces</b></li>
+            <li><span>Quality</span><b>EF · VVS-VS</b></li>
+            <li><span>Origin</span><b>Lab grown</b></li>
+            <li><span>Setting</span><b>Hand-set petals</b></li>
+          </ul>
         </div>
       </div>
 
-      <div class="spec-group">
-        <div class="spec-group-title">Diamond — Centre</div>
-        <div class="spec-fields">
-          <div class="spec-field"><dt>Quality</dt><dd>VS, EF</dd></div>
-          <div class="spec-field"><dt>Shape</dt><dd>Portuguese (161-facet)</dd></div>
-          <div class="spec-field"><dt>Quantity</dt><dd>1 pcs</dd></div>
-          <div class="spec-field"><dt>Carat</dt><dd>3.00 ct</dd></div>
-          <div class="spec-field"><dt>Origin</dt><dd>Lab grown</dd></div>
-          <div class="spec-field"><dt>Polish</dt><dd>Excellent</dd></div>
-          <div class="spec-field"><dt>Symmetry</dt><dd>Excellent</dd></div>
-          <div class="spec-field"><dt>Fluorescence</dt><dd>None</dd></div>
+      <div class="pd-meta-strip">
+        <span><b>Polish</b> Excellent</span>
+        <span><b>Symmetry</b> Excellent</span>
+        <span><b>Fluorescence</b> None</span>
+        <span><b>Inscription</b> IGI cert no. on girdle</span>
+      </div>
+    </div>
+
+    <!-- METAL panel -->
+    <div class="pd-panel" id="pd-metal">
+      <div class="pd-hero">
+        <div class="pd-hero-img" style="background:linear-gradient(135deg, #c59922 0%, #ead59e 50%, #c59922 100%);display:flex;align-items:center;justify-content:center"><span style="font-family:Georgia,serif;font-size:48px;color:rgba(0,0,0,0.4);font-weight:600">14K</span></div>
+        <div class="pd-hero-text">
+          <h3>14K Yellow Gold</h3>
+          <p>2.25 grams of certified 14-karat yellow gold, BIS-hallmarked on the inner band. Yellow, rose, or white available — choose your finish above.</p>
         </div>
       </div>
 
-      <div class="spec-group">
-        <div class="spec-group-title">Diamond — Accents</div>
-        <div class="spec-fields">
-          <div class="spec-field"><dt>Quality</dt><dd>VVS-VS, EF</dd></div>
-          <div class="spec-field"><dt>Shape</dt><dd>Marquise</dd></div>
-          <div class="spec-field"><dt>Quantity</dt><dd>6 pcs</dd></div>
-          <div class="spec-field"><dt>Carat</dt><dd>0.63 ct total</dd></div>
-        </div>
+      <div class="pd-stat-row">
+        <div class="pd-stat"><span class="pd-stat-num">14<small>KT</small></span><span class="pd-stat-label">Purity</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">2.25<small>g</small></span><span class="pd-stat-label">Net weight</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">Yellow</span><span class="pd-stat-label">Gold colour</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">BIS</span><span class="pd-stat-label">Hallmarked</span></div>
       </div>
 
-      <div class="spec-group">
-        <div class="spec-group-title">Setting &amp; Crafting</div>
-        <div class="spec-fields">
-          <div class="spec-field"><dt>Setting</dt><dd>Marquise petal halo</dd></div>
-          <div class="spec-field"><dt>Prongs</dt><dd>4-prong tulip</dd></div>
-          <div class="spec-field"><dt>Made in</dt><dd>Mumbai, India</dd></div>
-          <div class="spec-field"><dt>Lead time</dt><dd>7–10 working days</dd></div>
+      <div class="pd-card-grid">
+        <div class="pd-card">
+          <div class="pd-card-head"><span class="pd-card-icon">●</span><b>Composition</b></div>
+          <ul class="pd-list">
+            <li><span>Purity</span><b>14KT (58.5% gold)</b></li>
+            <li><span>Alloy</span><b>Copper + silver blend</b></li>
+            <li><span>Net weight</span><b>2.25 g</b></li>
+            <li><span>Hallmark</span><b>BIS 14K stamp</b></li>
+            <li><span>Available colours</span><b>Yellow · Rose · White</b></li>
+          </ul>
         </div>
-      </div>
-
-      <div class="spec-group">
-        <div class="spec-group-title">Certification</div>
-        <div class="spec-fields">
-          <div class="spec-field"><dt>Diamond</dt><dd>IGI · laser inscribed</dd></div>
-          <div class="spec-field"><dt>Metal</dt><dd>BIS hallmarked</dd></div>
-          <div class="spec-field"><dt>GIA upgrade</dt><dd>Available · +₹3,500</dd></div>
-          <div class="spec-field"><dt>Verify at</dt><dd>igi.org</dd></div>
+        <div class="pd-card">
+          <div class="pd-card-head"><span class="pd-card-icon">⬢</span><b>Crafting</b></div>
+          <ul class="pd-list">
+            <li><span>Made in</span><b>Mumbai atelier</b></li>
+            <li><span>Method</span><b>Lost-wax cast + hand finish</b></li>
+            <li><span>Polish</span><b>High mirror finish</b></li>
+            <li><span>Lead time</span><b>7–10 working days</b></li>
+            <li><span>Resizing</span><b>Free, up to 2 sizes</b></li>
+          </ul>
         </div>
       </div>
     </div>
+
+    <!-- SETTING panel -->
+    <div class="pd-panel" id="pd-setting">
+      <div class="pd-hero">
+        <div class="pd-hero-img"><img src="https://truediamond.in/cdn/shop/files/Untitled_design_20.png?v=1768042025&width=500" alt="" loading="lazy"></div>
+        <div class="pd-hero-text">
+          <h3>4-prong tulip with petal halo</h3>
+          <p>A floral architecture — six marquise petals frame the centre Portuguese cut like the petals of a tulip. Low-profile prongs hold the centre securely without distracting from its 161-facet brilliance.</p>
+        </div>
+      </div>
+
+      <div class="pd-stat-row">
+        <div class="pd-stat"><span class="pd-stat-num">4</span><span class="pd-stat-label">Centre prongs</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">6</span><span class="pd-stat-label">Marquise petals</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">1.8<small>mm</small></span><span class="pd-stat-label">Band width</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">7–22</span><span class="pd-stat-label">Size range</span></div>
+      </div>
+
+      <div class="pd-card-grid">
+        <div class="pd-card">
+          <div class="pd-card-head"><span class="pd-card-icon">✦</span><b>Centre setting</b></div>
+          <ul class="pd-list">
+            <li><span>Style</span><b>4-prong tulip</b></li>
+            <li><span>Profile</span><b>Mid-rise (~6 mm head)</b></li>
+            <li><span>Daily-wear</span><b>Yes — snag-resistant</b></li>
+            <li><span>Stone protection</span><b>Petal halo shield</b></li>
+          </ul>
+        </div>
+        <div class="pd-card">
+          <div class="pd-card-head"><span class="pd-card-icon">❀</span><b>Halo</b></div>
+          <ul class="pd-list">
+            <li><span>Design</span><b>Marquise petal halo</b></li>
+            <li><span>Stones</span><b>6 hand-set marquise</b></li>
+            <li><span>Spread</span><b>~13.2 mm wide</b></li>
+            <li><span>Inspiration</span><b>Tulip in bloom</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERT panel -->
+    <div class="pd-panel" id="pd-cert">
+      <div class="pd-hero">
+        <div class="pd-hero-img" style="background:linear-gradient(135deg, #1a1a1a, #3a2828);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;padding:20px;text-align:center">
+          <div style="font-family:Georgia,serif;font-size:32px;letter-spacing:0.1em;color:#f9c2bd;margin-bottom:8px">IGI</div>
+          <div style="font-size:11px;color:#d4ccbf;letter-spacing:0.1em;text-transform:uppercase">Lab Grown Diamond Report</div>
+          <div style="width:36px;height:36px;border:1.5px solid #f9c2bd;border-radius:50%;margin:14px auto 6px;display:flex;align-items:center;justify-content:center;color:#f9c2bd">★</div>
+          <div style="font-size:10px;color:#a8a39a;letter-spacing:0.08em">CERT NO. LG 619 524 8XXX</div>
+        </div>
+        <div class="pd-hero-text">
+          <h3>Triple certification</h3>
+          <p>Every Mystical Petal ships with three certifications: an IGI report for the diamond, BIS hallmarking on the gold, and our 99-year True Diamond service guarantee — all in your unboxing.</p>
+        </div>
+      </div>
+
+      <div class="pd-stat-row">
+        <div class="pd-stat"><span class="pd-stat-num">IGI</span><span class="pd-stat-label">Diamond report</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">BIS</span><span class="pd-stat-label">Gold hallmark</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">99<small>yr</small></span><span class="pd-stat-label">Service card</span></div>
+        <div class="pd-stat"><span class="pd-stat-num">Free</span><span class="pd-stat-label">Lifetime appraisal</span></div>
+      </div>
+
+      <div class="pd-card-grid">
+        <div class="pd-card">
+          <div class="pd-card-head"><span class="pd-card-icon">📜</span><b>Diamond certificate</b></div>
+          <ul class="pd-list">
+            <li><span>Issued by</span><b>IGI (default) or GIA</b></li>
+            <li><span>Documents</span><b>Cut, carat, colour, clarity</b></li>
+            <li><span>Inscription</span><b>Laser-engraved on girdle</b></li>
+            <li><span>Verify</span><b>igi.org with cert no.</b></li>
+            <li><span>GIA upgrade</span><b>+₹3,500 at order</b></li>
+          </ul>
+        </div>
+        <div class="pd-card">
+          <div class="pd-card-head"><span class="pd-card-icon">⚖</span><b>Metal &amp; service</b></div>
+          <ul class="pd-list">
+            <li><span>Gold hallmark</span><b>BIS 14K / 18K stamp</b></li>
+            <li><span>Hallmarking centre</span><b>BIS-licensed Mumbai</b></li>
+            <li><span>Service guarantee</span><b>99 years, signed</b></li>
+            <li><span>Buyback assurance</span><b>Current diamond price, forever</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -3422,6 +3767,18 @@ document.querySelectorAll('.price-tab').forEach(tab => {
 // Info accordions (Warranty / Care / Package)
 document.querySelectorAll('.info-accordion-head').forEach(head => {
   head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+});
+
+// Product Details tabs (Diamond / Metal / Setting / Certification)
+document.querySelectorAll('.pd-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.pdTab;
+    document.querySelectorAll('.pd-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.pd-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel = document.getElementById('pd-' + target);
+    if (panel) panel.classList.add('active');
+  });
 });
 </script>
 
