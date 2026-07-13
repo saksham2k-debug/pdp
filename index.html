@@ -1072,10 +1072,6 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
   <div class="wrap">
     <div class="mways-band">
       <p class="mways-h" style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-bottom:14px;text-align:center">More Ways to Explore</p>
-      <div class="mways-grid" style="margin-bottom:12px">
-        <a class="mway" onclick="document.getElementById('homeVisit').click()" style="cursor:pointer"><div><b>Book Home Visit</b>Free, no obligation · Metros only</div><span class="arr">→</span></a>
-        <a class="mway" onclick="document.getElementById('storeVisit').click()" style="cursor:pointer"><div><b>Book Store Visit</b>Try it on in person · 7 cities</div><span class="arr">→</span></a>
-      </div>
       <div class="mscheme"><b>True Harvest Plan</b> — Pay <b>10 monthly instalments</b>, get the 11th free.<a href="#">Calculate</a></div>
       <div class="mscheme"><b>Old Gold Exchange</b> — Bring your old gold, get current market value off this ring.<a href="#">How it works</a></div>
     </div>
@@ -1782,7 +1778,7 @@ new IntersectionObserver(es=>{
 const toast=document.getElementById('toast');
 function showToast(m){document.getElementById('toastMsg').textContent=m;toast.classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>toast.classList.remove('show'),2600);}
 document.getElementById('atc').addEventListener('click',()=>showToast('Added to cart · ₹ 2,49,826 · '+metal+' · Size '+size));
-document.getElementById('homeVisit').addEventListener('click',()=>showToast('Home visit requested — our team will WhatsApp you to schedule'));
+document.getElementById('homeVisit').addEventListener('click',()=>showToast('Home trial requested — our team will WhatsApp you to schedule'));
 document.getElementById('storeVisit').addEventListener('click',()=>showToast('Store visit noted — we\'ll send store details & directions'));
 /* read more */
 document.getElementById('descToggle').addEventListener('click',function(){
