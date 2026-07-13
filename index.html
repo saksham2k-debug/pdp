@@ -703,6 +703,58 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 /* soft section dividers */
 .trust-grid,.stories,.spec-grid,.craft-strip,.steps,.pdx-stats,.pdx-tabs,.trust4{border-radius:var(--r);overflow:hidden}
 
+/* jump cards below price */
+.pc-jump{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.pc-jump .gjump-card{align-items:flex-start}
+
+/* diamond type & quality selector (image-2 style) */
+.dtype{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.dtype-card{border:1px solid var(--hairline-dk);border-radius:var(--r-sm);padding:15px 12px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;background:#fff;transition:.2s}
+.dtype-card:hover{border-color:var(--noir)}
+.dtype-card.sel{border-color:var(--noir);box-shadow:inset 0 0 0 1px var(--noir)}
+.dtype-card .dt-dot{width:20px;height:20px;border-radius:50%;margin-bottom:3px;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.dt-dot.lab{background:radial-gradient(circle at 35% 30%,#fff,#cdd3d8)}
+.dt-dot.nat{background:radial-gradient(circle at 35% 30%,#F3DC9E,#C6A050)}
+.dtype-card b{font-family:var(--display);font-size:17px;font-weight:400}
+.dtype-card small{font-size:10.5px;color:var(--smoke)}
+.dtiers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.dtiers.single{grid-template-columns:1fr}
+.tier{border:1px solid var(--hairline);border-radius:var(--r-sm);padding:14px 15px;text-align:left;background:#fff;transition:.2s;cursor:pointer}
+.tier:hover{border-color:var(--noir)}
+.tier.sel{border-color:var(--noir);background:var(--bone);box-shadow:inset 0 0 0 1px var(--noir)}
+.tier .tn{font-family:var(--display);font-size:16px;margin-bottom:1px}
+.tier .tg{font-size:10.5px;color:var(--smoke);letter-spacing:.03em;margin-bottom:9px;text-transform:uppercase}
+.tier .tp{font-size:15px;font-weight:500}
+.tier .tbrk{font-size:10.5px;color:var(--champagne);border-bottom:1px solid var(--champagne);padding-bottom:1px;display:inline-block;margin-top:7px}
+
+/* mobile customize summary + bottom-sheet drawer */
+.cust-summary{display:none}
+.cust-backdrop{display:none}
+.cust-drawer-head,.cust-done,.cust-grip{display:none}
+@media(max-width:768px){
+  .cust-summary{display:block;border:1px solid var(--hairline-dk);border-radius:var(--r-sm);padding:16px;margin-bottom:22px;background:#fff}
+  .cust-summary .cs-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .cust-summary .cs-h span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+  .cust-summary .cs-h a{font-size:11px;color:var(--smoke);border-bottom:1px solid var(--hairline-dk)}
+  .cust-summary .cs-sel{display:flex;justify-content:center;gap:28px;font-size:13.5px;margin-bottom:16px;align-items:center;flex-wrap:wrap}
+  .cust-summary .cs-sel b{font-weight:500}
+  .cust-summary .cs-sel .chip{display:flex;align-items:center;gap:8px}
+  .cust-summary .cs-sel .dot{width:18px;height:18px;border-radius:50%;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+  .cust-summary .cs-btn{width:100%;background:var(--noir);color:#fff;border-radius:var(--pill);padding:15px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+
+  #customizeArea{position:fixed;left:0;right:0;bottom:0;z-index:95;background:#fff;border-radius:22px 22px 0 0;padding:10px 20px 26px;max-height:88vh;overflow-y:auto;transform:translateY(101%);transition:transform .38s var(--ease);box-shadow:0 -14px 44px rgba(19,18,17,.2)}
+  #customizeArea.open{transform:translateY(0)}
+  .cust-grip{display:block;width:42px;height:4px;border-radius:2px;background:var(--hairline-dk);margin:2px auto 6px}
+  .cust-drawer-head{display:flex;justify-content:space-between;align-items:center;padding:6px 0 16px}
+  .cust-drawer-head b{font-family:var(--display);font-size:21px;font-weight:400}
+  .cust-drawer-head button{font-size:26px;color:var(--smoke);line-height:1}
+  .cust-done{display:block;width:100%;background:var(--noir);color:#fff;border-radius:var(--pill);padding:16px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-top:10px}
+  .cust-backdrop.on{display:block;position:fixed;inset:0;background:rgba(19,18,17,.42);z-index:94}
+}
+
+/* more-ways relocated band */
+.mways-band{max-width:860px;margin:0 auto}
+
 /* mobile: keep flush gallery but rounded buy elements */
 @media(max-width:768px){
   .pc{border-radius:0}
@@ -759,10 +811,6 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
           <div class="mgal-count" id="mgalCount">1 / 5</div>
           <div class="mgal-dots" id="mgalDots"></div>
         </div>
-        <div class="gjump">
-          <a href="#reviews" class="gjump-card"><span class="stars">★★★★★</span><b>4.8 · 137 reviews</b><em>Read customer reviews →</em></a>
-          <a href="#faq" class="gjump-card"><span class="qic">?</span><b>Questions?</b><em>See FAQs →</em></a>
-        </div>
       </div>
     </div>
 
@@ -787,30 +835,64 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
       </div>
       <span id="ctxVar" hidden>14KT Yellow Gold, size 12</span>
 
+      <!-- jump cards below pricing -->
+      <div class="pc-jump">
+        <a href="#reviews" class="gjump-card"><b>Reviews</b><em>137 verified →</em></a>
+        <a href="#faq" class="gjump-card"><span class="qic">?</span><b>Faqs</b><em>Read answers →</em></a>
+      </div>
+
       <!-- description (Lucira Read More pattern) -->
       <p class="pc-desc" id="pcDesc">A brilliant 3 ct Portuguese cut lab-grown diamond, securely set in a sleek petal-halo silhouette. <span class="more">Six marquise diamonds frame the centre stone like petals in bloom, hand-set in a 4-prong tulip setting. IGI certified, EF colour, VS clarity — the world's brightest cut, made to order in our Mumbai atelier.</span></p>
       <button class="pc-desc-toggle" id="descToggle">Read more</button>
       <p class="pc-note">Note: Our products are handcrafted and personalised for your delight, hence a weight variance is expected.</p>
       <a class="pc-fulldetails" href="#specs">View full details</a>
 
-      <!-- metal + karat : 6 swatches -->
+      <!-- diamond type & quality -->
       <div class="opt">
-        <div class="opt-h"><span class="opt-l">Colour <span id="mLab">14KT Yellow Gold</span></span></div>
-        <div class="metals" id="metals">
-          <button class="mt sel" data-n="14KT Yellow Gold" data-stock="in"><i class="m-y">14KT</i>Yellow<small class="stk in">In Stock</small></button>
-          <button class="mt" data-n="18KT Yellow Gold" data-stock="made"><i class="m-y">18KT</i>Yellow<small class="stk made">Made to Order</small></button>
-          <button class="mt" data-n="14KT Rose Gold" data-stock="made"><i class="m-r">14KT</i>Rose<small class="stk made">Made to Order</small></button>
-          <button class="mt" data-n="18KT Rose Gold" data-stock="made"><i class="m-r">18KT</i>Rose<small class="stk made">Made to Order</small></button>
-          <button class="mt" data-n="14KT White Gold" data-stock="made"><i class="m-w">14KT</i>White<small class="stk made">Made to Order</small></button>
-          <button class="mt" data-n="18KT White Gold" data-stock="made"><i class="m-w">18KT</i>White<small class="stk made">Made to Order</small></button>
+        <div class="opt-h"><span class="opt-l">Diamond <span id="dLab">Lab Grown · EF VVS-VS</span></span></div>
+        <div class="dtype" id="dtype">
+          <button class="dtype-card sel" data-type="lab"><span class="dt-dot lab"></span><b>Lab Grown</b><small>Only EF VVS-VS</small></button>
+          <button class="dtype-card" data-type="nat"><span class="dt-dot nat"></span><b>Natural</b><small>3 quality options</small></button>
         </div>
+        <div class="dtiers single" id="dtiers"></div>
       </div>
 
-      <!-- ring size -->
-      <div class="opt">
-        <div class="opt-h"><span class="opt-l">Size <span id="szLab">12 IND</span></span><a class="opt-a" href="#">Size guide</a></div>
-        <div class="sizes" id="sizes"></div>
-        <p class="size-note">Watch this <a href="#">quick video</a> to measure your ring right. Didn't get the size right? <a href="#">We'll exchange it</a> — free, within 7 days.</p>
+      <!-- mobile customize summary -->
+      <div class="cust-summary">
+        <div class="cs-h"><span>Size &amp; Customization</span><a href="#">Size Guide</a></div>
+        <div class="cs-sel">
+          <span class="chip"><span class="dot m-y" id="csDot"></span><b id="csMetal">14KT Yellow Gold</b></span>
+          <span class="chip">Size : <b id="csSize">12 IND</b></span>
+        </div>
+        <button class="cs-btn" id="custOpen">Customize</button>
+      </div>
+
+      <!-- colour + size : inline on desktop, drawer on mobile -->
+      <div id="customizeArea">
+        <div class="cust-grip"></div>
+        <div class="cust-drawer-head"><b>Size &amp; Customization</b><button id="custClose" aria-label="Close">×</button></div>
+
+        <!-- metal + karat : 6 swatches -->
+        <div class="opt">
+          <div class="opt-h"><span class="opt-l">Colour <span id="mLab">14KT Yellow Gold</span></span></div>
+          <div class="metals" id="metals">
+            <button class="mt sel" data-n="14KT Yellow Gold" data-stock="in"><i class="m-y">14KT</i>Yellow</button>
+            <button class="mt" data-n="18KT Yellow Gold" data-stock="made"><i class="m-y">18KT</i>Yellow</button>
+            <button class="mt" data-n="14KT Rose Gold" data-stock="made"><i class="m-r">14KT</i>Rose</button>
+            <button class="mt" data-n="18KT Rose Gold" data-stock="made"><i class="m-r">18KT</i>Rose</button>
+            <button class="mt" data-n="14KT White Gold" data-stock="made"><i class="m-w">14KT</i>White</button>
+            <button class="mt" data-n="18KT White Gold" data-stock="made"><i class="m-w">18KT</i>White</button>
+          </div>
+        </div>
+
+        <!-- ring size -->
+        <div class="opt">
+          <div class="opt-h"><span class="opt-l">Size <span id="szLab">12 IND</span></span><a class="opt-a" href="#">Size guide</a></div>
+          <div class="sizes" id="sizes"></div>
+          <p class="size-note">Watch this <a href="#">quick video</a> to measure your ring right. Didn't get the size right? <a href="#">We'll exchange it</a> — free, within 7 days.</p>
+        </div>
+
+        <button class="cust-done" id="custDone">Done</button>
       </div>
 
       <!-- engraving -->
@@ -848,17 +930,6 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
           <div class="tcar-slide"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M3 11h18"/></svg><div><b>Free India Shipping</b>Insured · 7-day returns · Discreet packaging</div></div>
         </div>
         <div class="tcar-dots" id="tcarDots"></div>
-      </div>
-
-      <!-- more ways -->
-      <div class="mways">
-        <p class="mways-h">More Ways to Explore</p>
-        <div class="mways-grid">
-          <a class="mway" href="#stores"><div><b>Visit Our Store</b>Try it on, in person · 7 cities</div><span class="arr">→</span></a>
-          <a class="mway" href="#"><div><b>Try At Home</b>Free, no obligation · Metros only</div><span class="arr">→</span></a>
-        </div>
-        <div class="mscheme"><b>True Harvest Plan</b> — Pay <b>10 monthly instalments</b>, get the 11th free.<a href="#">Calculate</a></div>
-        <div class="mscheme"><b>Old Gold Exchange</b> — Bring your old gold, get current market value off this ring.<a href="#">How it works</a></div>
       </div>
     </div>
   </div>
@@ -950,6 +1021,21 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
           </ul>
         </div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MORE WAYS TO EXPLORE (relocated below Price & details) ===== -->
+<section class="blk" style="padding-top:0">
+  <div class="wrap">
+    <div class="mways-band">
+      <p class="mways-h" style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-bottom:14px;text-align:center">More Ways to Explore</p>
+      <div class="mways-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+        <a class="mway" href="#stores"><div><b>Visit Our Store</b>Try it on, in person · 7 cities</div><span class="arr">→</span></a>
+        <a class="mway" href="#"><div><b>Try At Home</b>Free, no obligation · Metros only</div><span class="arr">→</span></a>
+      </div>
+      <div class="mscheme"><b>True Harvest Plan</b> — Pay <b>10 monthly instalments</b>, get the 11th free.<a href="#">Calculate</a></div>
+      <div class="mscheme"><b>Old Gold Exchange</b> — Bring your old gold, get current market value off this ring.<a href="#">How it works</a></div>
     </div>
   </div>
 </section>
@@ -1423,7 +1509,7 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
   <div class="dsticky-in">
     <img src="https://truediamond.in/cdn/shop/files/1_da71f196-1b75-43d9-84f3-ad2b248b2f81.png?v=1776735389&width=140" alt="">
     <div class="dn"><b>Mystical Petal 3 Ct Portuguese Solitaire</b><span id="dsVar">14KT Yellow Gold · Size 12</span></div>
-    <span class="dp">₹ 2,49,826</span>
+    <span class="dp" id="dsPrice">₹ 2,49,826</span>
     <button class="b2" onclick="document.getElementById('homeVisit').click()">Book Home Visit</button>
     <button class="b1" onclick="document.getElementById('atc').click()">Add to Cart</button>
   </div>
@@ -1438,6 +1524,7 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
   </div>
 </div>
 
+<div class="cust-backdrop" id="custBackdrop"></div>
 <div class="toast" id="toast" role="status"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span id="toastMsg"></span></div>
 
 <script>
