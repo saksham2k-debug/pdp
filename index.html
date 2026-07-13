@@ -781,6 +781,25 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 .dtile-breakup .brk .k b{display:block;color:var(--noir);font-weight:500}
 .dtile-breakup .brk tr.total td{font-family:var(--display);font-size:16px;border-bottom:none;padding-top:14px}
 
+/* mobile optimisation — diamond tiles + more-ways */
+@media(max-width:768px){
+  .dtiles-wrap{max-width:none}
+  .dtype-head{margin-bottom:14px;font-size:10.5px}
+  .dtile{padding:15px 16px;border-radius:var(--r-sm)}
+  .dtile-row{gap:12px}
+  .dtile-type{font-size:17px}
+  .dtile-grade{font-size:10px}
+  .dtile-right{gap:10px}
+  .dtile-price{font-size:15px}
+  .dtile-radio{width:18px;height:18px}
+  .dtile-brk{margin-top:12px}
+  .dtile-breakup .brk td{padding:9px 2px}
+  .certblock{margin-top:24px!important;padding:22px 18px}
+  .mways-band{max-width:none}
+  .mways-band .mways-grid{grid-template-columns:1fr}
+  .mways-band .mway{padding:15px 16px}
+}
+
 /* mobile: keep flush gallery but rounded buy elements */
 @media(max-width:768px){
   .pc{border-radius:0}
@@ -932,8 +951,8 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
       <button class="cta1" id="atc">Add to Cart</button>
       <p class="save-scheme">You save <b>₹ 24,983</b> with the True Harvest scheme</p>
       <div class="book-row">
-        <button class="book-btn" id="homeVisit"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Book Home Visit<small>Free · metros</small></button>
-        <button class="book-btn" id="storeVisit"><svg viewBox="0 0 24 24"><path d="M4 4h16l-1 5H5L4 4z"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg>Book Store Visit<small>7 cities</small></button>
+        <button class="book-btn" id="homeVisit"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Try At Home<small>Free · metros</small></button>
+        <button class="book-btn" id="storeVisit"><svg viewBox="0 0 24 24"><path d="M4 4h16l-1 5H5L4 4z"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg>Visit Our Store<small>7 cities</small></button>
       </div>
       <p class="cta2-sub">Try before you buy · Mumbai · Hyderabad · Pune · Noida · Delhi NCR</p>
 
@@ -1053,9 +1072,9 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
   <div class="wrap">
     <div class="mways-band">
       <p class="mways-h" style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-bottom:14px;text-align:center">More Ways to Explore</p>
-      <div class="mways-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-        <a class="mway" href="#stores"><div><b>Visit Our Store</b>Try it on, in person · 7 cities</div><span class="arr">→</span></a>
-        <a class="mway" href="#"><div><b>Try At Home</b>Free, no obligation · Metros only</div><span class="arr">→</span></a>
+      <div class="mways-grid" style="margin-bottom:12px">
+        <a class="mway" onclick="document.getElementById('homeVisit').click()" style="cursor:pointer"><div><b>Book Home Visit</b>Free, no obligation · Metros only</div><span class="arr">→</span></a>
+        <a class="mway" onclick="document.getElementById('storeVisit').click()" style="cursor:pointer"><div><b>Book Store Visit</b>Try it on in person · 7 cities</div><span class="arr">→</span></a>
       </div>
       <div class="mscheme"><b>True Harvest Plan</b> — Pay <b>10 monthly instalments</b>, get the 11th free.<a href="#">Calculate</a></div>
       <div class="mscheme"><b>Old Gold Exchange</b> — Bring your old gold, get current market value off this ring.<a href="#">How it works</a></div>
