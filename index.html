@@ -755,6 +755,32 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 /* more-ways relocated band */
 .mways-band{max-width:860px;margin:0 auto}
 
+/* stacked diamond tiles (Price & details section) */
+.dtiles-wrap{max-width:640px;margin:0 auto}
+.dtype-head{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke);text-align:center;margin-bottom:18px}
+.dtype-head b{color:var(--noir);font-weight:500}
+.dtiles{display:flex;flex-direction:column;gap:12px}
+.dtile{border:1px solid var(--hairline-dk);border-radius:var(--r);background:#fff;padding:18px 20px;cursor:pointer;transition:.2s}
+.dtile:hover{border-color:var(--noir)}
+.dtile.sel{border-color:var(--noir);background:var(--bone);box-shadow:inset 0 0 0 1px var(--noir)}
+.dtile-row{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.dtile-type{font-family:var(--display);font-size:20px;margin-bottom:2px}
+.dtile-grade{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--smoke)}
+.dtile-right{display:flex;align-items:center;gap:14px}
+.dtile-price{font-size:18px;font-weight:500;white-space:nowrap}
+.dtile-radio{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--hairline-dk);flex-shrink:0;position:relative;transition:.2s}
+.dtile.sel .dtile-radio{border-color:var(--noir)}
+.dtile.sel .dtile-radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--noir)}
+.dtile-brk{margin-top:14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--champagne);font-weight:500;display:inline-flex;align-items:center;gap:6px;background:none;border:none;padding:0}
+.dtile-brk .chev{transition:transform .3s var(--ease);font-size:13px}
+.dtile-breakup{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.dtile-breakup .brk{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:16px}
+.dtile-breakup .brk td{padding:10px 2px;border-bottom:1px solid var(--hairline);vertical-align:top}
+.dtile-breakup .brk td:last-child{text-align:right;font-weight:500;white-space:nowrap}
+.dtile-breakup .brk .k{color:var(--smoke);line-height:1.5}
+.dtile-breakup .brk .k b{display:block;color:var(--noir);font-weight:500}
+.dtile-breakup .brk tr.total td{font-family:var(--display);font-size:16px;border-bottom:none;padding-top:14px}
+
 /* mobile: keep flush gallery but rounded buy elements */
 @media(max-width:768px){
   .pc{border-radius:0}
@@ -847,16 +873,6 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
       <p class="pc-note">Note: Our products are handcrafted and personalised for your delight, hence a weight variance is expected.</p>
       <a class="pc-fulldetails" href="#specs">View full details</a>
 
-      <!-- diamond type & quality -->
-      <div class="opt">
-        <div class="opt-h"><span class="opt-l">Diamond <span id="dLab">Lab Grown · EF VVS-VS</span></span></div>
-        <div class="dtype" id="dtype">
-          <button class="dtype-card sel" data-type="lab"><span class="dt-dot lab"></span><b>Lab Grown</b><small>Only EF VVS-VS</small></button>
-          <button class="dtype-card" data-type="nat"><span class="dt-dot nat"></span><b>Natural</b><small>3 quality options</small></button>
-        </div>
-        <div class="dtiers single" id="dtiers"></div>
-      </div>
-
       <!-- mobile customize summary -->
       <div class="cust-summary">
         <div class="cs-h"><span>Size &amp; Customization</span><a href="#">Size Guide</a></div>
@@ -938,51 +954,58 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 <!-- ===== PRICE & SAVINGS ===== -->
 <section class="blk psd">
   <div class="wrap">
-    <div class="shead rv"><span class="eyebrow">Transparent Pricing</span><h2>Price &amp; savings details</h2></div>
-    <div class="psd-card rv">
-      <div class="psd-tabs" role="tablist">
-        <button class="on" data-pane="pb" role="tab">Price Breakup</button>
-        <button data-pane="pcm" role="tab">Price Comparison</button>
-      </div>
-      <div class="psd-pane on" id="pb">
-        <table class="brk">
-          <tr><td class="k"><b>Gold</b>14K Yellow Gold · 2.25g net weight</td><td>₹ 20,992</td></tr>
-          <tr><td class="k"><b>Diamond — Centre (1)</b>EF VS · 3.00 ct · Portuguese cut · IGI</td><td>₹ 1,95,000</td></tr>
-          <tr><td class="k"><b>Diamond — Accents (6)</b>EF VVS/VS · 0.63 ct total · Marquise</td><td>₹ 22,050</td></tr>
-          <tr><td class="k"><b>Making Charges</b>Tulip prong setting · petal halo</td><td>₹ 4,508</td></tr>
-          <tr class="sub"><td class="k"><b>Net Value</b></td><td>₹ 2,42,550</td></tr>
-          <tr><td class="k"><b>GST (3%)</b></td><td>₹ 7,276</td></tr>
-          <tr class="total"><td>Total</td><td>₹ 2,49,826</td></tr>
-        </table>
-        <p class="psd-note"><b>Note:</b> Handcrafted and personalised with care — slight variations in metal weight are natural with different sizes.</p>
-      </div>
-      <div class="psd-pane cmp2wrap" id="pcm">
-        <table class="cmp2">
-          <thead><tr><th></th><th class="td">True Diamond · Lab Grown</th><th>Mined Diamond</th></tr></thead>
-          <tbody>
-            <tr><td>Diamond price</td><td class="td">₹ 2,17,050</td><td>₹ 7,59,675</td></tr>
-            <tr><td>Carat</td><td class="td">3.63 ct</td><td>3.63 ct</td></tr>
-            <tr><td>Colour</td><td class="td">EF</td><td>IJ</td></tr>
-            <tr><td>Clarity</td><td class="td">VS &amp; VVS/VS</td><td>SI</td></tr>
-            <tr><td>Cut</td><td class="td">Portuguese (161 facets)</td><td>Round (57 facets)</td></tr>
-            <tr class="tot"><td>Total saving</td><td class="td">₹ 5,42,625</td><td>₹ 0</td></tr>
-          </tbody>
-        </table>
-        <p class="psd-note">Mined benchmarks sourced from Rapaport for the same carat, colour and clarity grades. True Diamond's lab grown diamonds offer higher colour &amp; clarity at a fraction of the price.</p>
-      </div>
-      <div class="psd-save"><span>Save on this jewellery</span><b>₹ 26,711</b></div>
-      <div class="certblock">
-        <div class="certblock-l">
-          <span class="eyebrow">Certified Quality, Guaranteed</span>
-          <p>Every Mystical Petal is independently graded and hallmarked. Your certificate travels with the ring — and its number is verifiable online, forever.</p>
-          <a href="#" class="certblock-cta">See sample certificate →</a>
+    <div class="shead rv"><span class="eyebrow">Diamond &amp; Pricing</span><h2>Choose your diamond</h2><p>Available in lab grown or natural, across four quality grades. Pick your diamond — the price updates instantly, and you can open a full breakup on any option.</p></div>
+
+    <div class="dtiles-wrap rv">
+      <div class="dtype-head">DIAMOND · <b id="dLab">Lab Grown · EF VVS-VS</b></div>
+      <div class="dtiles" id="dtiles">
+        <div class="dtile sel" data-type="lab" data-grade="EF VVS-VS" data-price="249826">
+          <div class="dtile-row">
+            <div class="dtile-info"><div class="dtile-type">Lab Grown</div><div class="dtile-grade">EF VVS-VS · Portuguese cut · IGI</div></div>
+            <div class="dtile-right"><div class="dtile-price">₹ 2,49,826</div><span class="dtile-radio"></span></div>
+          </div>
+          <button class="dtile-brk" type="button">View price breakup <span class="chev">⌄</span></button>
+          <div class="dtile-breakup"></div>
         </div>
-        <div class="certlogos-grid">
-          <div class="clogo"><b>IGI</b><span>Diamond report</span></div>
-          <div class="clogo"><b>GIA</b><span>On request</span></div>
-          <div class="clogo"><b>SGL</b><span>Gem lab</span></div>
-          <div class="clogo"><b>BIS</b><span>Gold hallmark</span></div>
+        <div class="dtile" data-type="nat" data-grade="EF VVS-VS" data-price="759675">
+          <div class="dtile-row">
+            <div class="dtile-info"><div class="dtile-type">Natural</div><div class="dtile-grade">EF VVS-VS · Portuguese cut · IGI</div></div>
+            <div class="dtile-right"><div class="dtile-price">₹ 7,59,675</div><span class="dtile-radio"></span></div>
+          </div>
+          <button class="dtile-brk" type="button">View price breakup <span class="chev">⌄</span></button>
+          <div class="dtile-breakup"></div>
         </div>
+        <div class="dtile" data-type="nat" data-grade="GH-VS" data-price="420000">
+          <div class="dtile-row">
+            <div class="dtile-info"><div class="dtile-type">Natural</div><div class="dtile-grade">GH-VS · Portuguese cut · IGI</div></div>
+            <div class="dtile-right"><div class="dtile-price">₹ 4,20,000</div><span class="dtile-radio"></span></div>
+          </div>
+          <button class="dtile-brk" type="button">View price breakup <span class="chev">⌄</span></button>
+          <div class="dtile-breakup"></div>
+        </div>
+        <div class="dtile" data-type="nat" data-grade="SI-IJ" data-price="295000">
+          <div class="dtile-row">
+            <div class="dtile-info"><div class="dtile-type">Natural</div><div class="dtile-grade">SI-IJ · Portuguese cut · IGI</div></div>
+            <div class="dtile-right"><div class="dtile-price">₹ 2,95,000</div><span class="dtile-radio"></span></div>
+          </div>
+          <button class="dtile-brk" type="button">View price breakup <span class="chev">⌄</span></button>
+          <div class="dtile-breakup"></div>
+        </div>
+      </div>
+      <p class="psd-note" style="text-align:center;margin-top:18px"><b>Note:</b> Handcrafted &amp; personalised — slight metal-weight variance is natural across sizes. All diamonds IGI certified &amp; laser-inscribed.</p>
+    </div>
+
+    <div class="certblock rv" style="margin-top:36px;border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden">
+      <div class="certblock-l">
+        <span class="eyebrow">Certified Quality, Guaranteed</span>
+        <p>Every Mystical Petal is independently graded and hallmarked. Your certificate travels with the ring — and its number is verifiable online, forever.</p>
+        <a href="#" class="certblock-cta">See sample certificate →</a>
+      </div>
+      <div class="certlogos-grid">
+        <div class="clogo"><b>IGI</b><span>Diamond report</span></div>
+        <div class="clogo"><b>GIA</b><span>On request</span></div>
+        <div class="clogo"><b>SGL</b><span>Gem lab</span></div>
+        <div class="clogo"><b>BIS</b><span>Gold hallmark</span></div>
       </div>
     </div>
 
@@ -1578,11 +1601,57 @@ gmain.addEventListener('click',e=>{
   reset();
 })();
 
-/* variant state — metal(6) + size, with Lucira stock model */
+/* variant state — diamond + metal(6) + size */
 let metal='14KT Yellow Gold',size='12',metalStock='in',sizeStock='in';
-/* only 14KT Yellow + size 12 are stocked; everything else made-to-order */
+let dtype='lab',price=249826,dgrade='EF VVS-VS';
+const fmt=n=>'₹ '+Math.round(n).toLocaleString('en-IN');
+
+function setPrice(p){
+  price=p;
+  const was=Math.round(p/0.9), save=was-p;
+  document.querySelector('.pc-price .now').textContent=fmt(p);
+  document.querySelector('.pc-price .was').textContent=fmt(was);
+  document.querySelector('.pc-price .off').textContent='10% off · Save '+fmt(save);
+  const dsp=document.getElementById('dsPrice');if(dsp)dsp.textContent=fmt(p);
+  ctx();
+}
+
+/* per-diamond price breakup (computed from the option price) */
+function breakupHTML(p){
+  const net=Math.round(p/1.03), gst=p-net;
+  const gold=20992, making=4508, accents=22050;
+  const centre=net-gold-making-accents;
+  return '<table class="brk">'+
+    '<tr><td class="k"><b>Gold</b>14K · 2.25g net weight</td><td>'+fmt(gold)+'</td></tr>'+
+    '<tr><td class="k"><b>Centre diamond</b>3.00 ct · Portuguese cut</td><td>'+fmt(centre)+'</td></tr>'+
+    '<tr><td class="k"><b>Accents (6)</b>0.63 ct total · marquise</td><td>'+fmt(accents)+'</td></tr>'+
+    '<tr><td class="k"><b>Making charges</b>Tulip prong · petal halo</td><td>'+fmt(making)+'</td></tr>'+
+    '<tr><td class="k"><b>GST (3%)</b></td><td>'+fmt(gst)+'</td></tr>'+
+    '<tr class="total"><td>Total</td><td>'+fmt(p)+'</td></tr></table>';
+}
+
+/* stacked diamond tiles */
+function selectTile(t){
+  document.querySelectorAll('.dtile').forEach(x=>x.classList.remove('sel'));
+  t.classList.add('sel');
+  dtype=t.dataset.type;dgrade=t.dataset.grade;
+  document.getElementById('dLab').textContent=(dtype==='lab'?'Lab Grown':'Natural')+' · '+dgrade;
+  setPrice(+t.dataset.price);
+}
+document.querySelectorAll('.dtile').forEach(t=>{
+  const brkBtn=t.querySelector('.dtile-brk'),brkBox=t.querySelector('.dtile-breakup');
+  t.addEventListener('click',e=>{if(!e.target.closest('.dtile-brk'))selectTile(t);});
+  brkBtn.addEventListener('click',e=>{
+    e.stopPropagation();
+    if(!brkBox.dataset.filled){brkBox.innerHTML=breakupHTML(+t.dataset.price);brkBox.dataset.filled='1';}
+    const open=t.classList.toggle('brk-open');
+    brkBox.style.maxHeight=open?brkBox.scrollHeight+'px':null;
+    brkBtn.querySelector('.chev').style.transform=open?'rotate(180deg)':'';
+  });
+});
+
 function updateAvail(){
-  const inStock=(metalStock==='in'&&sizeStock==='in');
+  const inStock=(dtype==='lab'&&metalStock==='in'&&sizeStock==='in');
   const el=document.getElementById('availStatus');
   el.classList.toggle('in',inStock);el.classList.toggle('made',!inStock);
   document.getElementById('availLabel').textContent=inStock?'In Stock':'Made to Order';
@@ -1591,7 +1660,11 @@ function updateAvail(){
 function ctx(){
   document.getElementById('ctxVar').textContent=metal+', size '+size;
   document.getElementById('dsVar').textContent=metal+' · Size '+size;
-  document.getElementById('msVar').textContent='₹ 2,49,826 · '+metal.replace(' Gold','')+' · Size '+size;
+  document.getElementById('msVar').textContent=fmt(price)+' · '+metal.replace(' Gold','')+' · Size '+size;
+  /* mobile summary card */
+  const csM=document.getElementById('csMetal');if(csM)csM.textContent=metal;
+  const csS=document.getElementById('csSize');if(csS)csS.textContent=size+' IND';
+  const csD=document.getElementById('csDot');if(csD)csD.className='dot '+(metal.includes('Rose')?'m-r':metal.includes('White')?'m-w':'m-y');
   updateAvail();
 }
 document.querySelectorAll('#metals .mt').forEach(m=>m.addEventListener('click',()=>{
@@ -1615,6 +1688,17 @@ for(let s=5;s<=18;s++){
   });
   sz.appendChild(b);
 }
+
+/* mobile customize drawer */
+(()=>{
+  const area=document.getElementById('customizeArea'),bd=document.getElementById('custBackdrop');
+  const open=()=>{area.classList.add('open');bd.classList.add('on');document.body.style.overflow='hidden';};
+  const close=()=>{area.classList.remove('open');bd.classList.remove('on');document.body.style.overflow='';};
+  const ob=document.getElementById('custOpen');if(ob)ob.addEventListener('click',open);
+  const cb=document.getElementById('custClose');if(cb)cb.addEventListener('click',close);
+  const db=document.getElementById('custDone');if(db)db.addEventListener('click',close);
+  bd.addEventListener('click',close);
+})();
 
 /* engraving */
 const engIn=document.getElementById('engIn');
