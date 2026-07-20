@@ -876,6 +876,198 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
   .pc{border-radius:0}
   .mgal,.mgal-slide{border-radius:0}
 }
+/* ─── LUXURY POLISH (surgical) ─────────────────────────── */
+/* headline drama: larger, tighter, with a champagne italic accent word */
+.shead h2{font-size:clamp(32px,5vw,60px);line-height:1.02;letter-spacing:-.02em}
+.shead h2 .gold,.shead h2 em{font-style:italic;color:var(--champagne);font-family:var(--display)}
+.about-grid h2{font-size:clamp(30px,3.6vw,46px);letter-spacing:-.018em}
+.about-grid h2 em{font-style:italic;color:var(--champagne)}
+.bespoke h2 em,.newsletter h3 em{font-style:italic;color:var(--champagne)}
+
+/* eyebrow hairline that draws in on reveal */
+.eyebrow{display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:0;height:1px;background:var(--champagne);opacity:.75;transition:width .9s var(--ease) .15s}
+.rv.in .eyebrow::before,.shead .eyebrow::before{width:28px}
+
+/* primary CTA — slow champagne sheen sweep on hover */
+.cta1{position:relative;overflow:hidden}
+.cta1::after{content:"";position:absolute;top:0;left:-125%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(239,231,214,.45),transparent);transform:skewX(-18deg);transition:left .75s var(--ease);pointer-events:none}
+.cta1:hover::after{left:135%}
+
+/* staggered reveals for grids — children arrive with rhythm */
+:is(.stories,.prom-grid,.prod-grid,.press-grid,.steps,.vids,.ugc).rv{opacity:1;transform:none}
+.dtiles-wrap.rv{opacity:1;transform:none}
+:is(.stories,.prom-grid,.prod-grid,.press-grid,.steps,.vids,.ugc).rv>*,.dtiles-wrap.rv .dtile{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+:is(.stories,.prom-grid,.prod-grid,.press-grid,.steps,.vids,.ugc).rv.in>*,.dtiles-wrap.rv.in .dtile{opacity:1;transform:none}
+:is(.stories,.prom-grid,.prod-grid,.press-grid,.steps,.vids,.ugc).rv.in>*:nth-child(2),.dtiles-wrap.rv.in .dtile:nth-child(2){transition-delay:.08s}
+:is(.stories,.prom-grid,.prod-grid,.press-grid,.steps,.vids,.ugc).rv.in>*:nth-child(3),.dtiles-wrap.rv.in .dtile:nth-child(3){transition-delay:.16s}
+:is(.stories,.prom-grid,.prod-grid,.press-grid,.steps,.vids,.ugc).rv.in>*:nth-child(4),.dtiles-wrap.rv.in .dtile:nth-child(4){transition-delay:.24s}
+:is(.stories,.prom-grid,.prod-grid,.press-grid,.steps,.vids,.ugc).rv.in>*:nth-child(5){transition-delay:.32s}
+:is(.stories,.prom-grid,.prod-grid,.press-grid,.steps,.vids,.ugc).rv.in>*:nth-child(6){transition-delay:.40s}
+:is(.steps,.ugc,.press-grid).rv.in>*:nth-child(7){transition-delay:.48s}
+:is(.steps,.ugc,.press-grid).rv.in>*:nth-child(8){transition-delay:.56s}
+
+/* about imagery — subtle scroll parallax hook */
+.about-grid .rv{overflow:hidden}
+.about-grid .rv img{will-change:transform}
+
+/* ─── requested refinements ─────────────────────────────── */
+.dtile-type{font-size:24px}
+.dtile-grade{font-size:11.5px}
+.dtile-price{font-size:17px}
+.dtile-brk{font-size:11.5px}
+.pcj-tx em{font-size:12px}
+.size-note{font-size:12.5px}
+.mt{font-size:11px}
+.cta2-sub{font-size:12px}
+.book-btn small{font-size:10.5px}
+.opt-l{font-size:11.5px}
+.deliv{font-size:12.5px;background:transparent;border:1px solid var(--hairline)}
+.deliv svg{stroke:var(--champagne)}
+.engrave-h em{background:transparent;color:var(--champagne);padding:0;border:none;border-radius:0;font-size:11px}
+@media(max-width:768px){
+  .dtile-type{font-size:21px}
+  .dtile-grade{font-size:11px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .cta1::after{display:none}
+  :is(.stories,.prom-grid,.prod-grid,.press-grid,.steps,.vids,.ugc).rv>*,.dtiles-wrap.rv .dtile{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+/* ═══ MOBILE READABILITY PASS — bigger, cleaner text (layout intact) ═══ */
+@media(max-width:768px){
+  body{font-size:15px}
+  .eyebrow{font-size:11px;letter-spacing:.22em}
+  .shead h2{font-size:clamp(30px,8vw,40px)}
+  .shead p{font-size:14.5px;line-height:1.8}
+
+  /* buy panel */
+  .pc h1{font-size:28px}
+  .pc-rating{font-size:12.5px}
+  .viewed{font-size:12.5px}
+  .pc-price .now{font-size:32px}
+  .pc-price .was{font-size:14px}
+  .pc-price .off{font-size:12px}
+  .pc-desc{font-size:14.5px;line-height:1.75}
+  .pc-desc-toggle{font-size:13px}
+  .pc-note{font-size:12.5px}
+  .pc-fulldetails{font-size:12px}
+  .pcj-tx b{font-size:17px}
+  .pcj-tx em{font-size:12.5px}
+  .opt-l{font-size:12px}
+  .opt-l span{font-size:13.5px}
+  .opt-a{font-size:11.5px}
+  .mt{font-size:12px}
+  .sizes button{font-size:14.5px}
+  .size-note{font-size:13px}
+  .engrave p{font-size:13px}
+  .engrave-h span{font-size:12px}
+  .deliv{font-size:13px}
+  .book-btn{font-size:11.5px}
+  .book-btn small{font-size:11px}
+  .cta2-sub{font-size:12.5px}
+  .cta1{font-size:13px}
+  .tcar-slide{font-size:13px}
+  .tcar-slide b{font-size:14.5px}
+
+  /* diamond tiles */
+  .dtile-type{font-size:22px}
+  .dtile-grade{font-size:12px}
+  .dtile-price{font-size:17px}
+  .dtile-brk{font-size:12px}
+  .dtile-breakup .brk{font-size:13px}
+
+  /* summary + drawer */
+  .cust-summary .cs-h span{font-size:12px}
+  .cust-summary .cs-sel{font-size:14px}
+
+  /* content sections */
+  .stcell .k{font-size:11px}
+  .stcell h4{font-size:19px}
+  .stcell p{font-size:13.5px;line-height:1.7}
+  .about-grid>div>p{font-size:15px;line-height:1.85}
+  .bespoke p{font-size:14.5px}
+  .pdx-tabs button .k{font-size:10.5px}
+  .pdx-tabs button b{font-size:15px}
+  .pdx-hero p{font-size:14px}
+  .pdx-stats b{font-size:19px}
+  .pdx-stats span{font-size:10.5px}
+  .pdx-list dt,.pdx-list dd{font-size:13.5px}
+  .pdx-list h5{font-size:11.5px}
+  .vid h5{font-size:16px}
+  .vid p{font-size:12.5px}
+  .step h5{font-size:16px}
+  .step p{font-size:12.5px}
+  .cert-txt>p{font-size:14.5px;line-height:1.75}
+  .cert-txt li{font-size:13.5px}
+  .certlogos-row .clogo b,.clogo b{font-size:19px}
+  .certlogos-row .clogo span,.clogo span{font-size:10px}
+  .lvm th,.lvm td{font-size:13px;padding:13px 12px}
+  .prom h4{font-size:20px}
+  .prom p{font-size:13px;line-height:1.65}
+
+  /* reviews */
+  .rev-score .big{font-size:52px}
+  .rev-score>p{font-size:12.5px}
+  .rd{font-size:12px}
+  .rev-filters button{font-size:12.5px}
+  .rcard .rh b{font-size:15px}
+  .rcard .rq{font-size:14.5px;line-height:1.75}
+  .rcard .rm{font-size:12.5px}
+
+  /* faq */
+  .fq{font-size:18px}
+  .fa p{font-size:14.5px;line-height:1.8}
+
+  /* product cards */
+  .pcard h4{font-size:16px}
+  .pcard .pm{font-size:12.5px}
+  .pcard .pp{font-size:14px}
+  .range a{font-size:12.5px}
+
+  /* stores */
+  .store h4{font-size:19px}
+  .store .addr{font-size:13px;line-height:1.6}
+  .store .meta{font-size:12.5px}
+  .store .acts a{font-size:11.5px}
+  .store .stock{font-size:10.5px}
+
+  /* more ways */
+  .mlux-body h3{font-size:26px}
+  .mlux-body p{font-size:13.5px}
+  .mlux-cta{font-size:12px}
+  .mlux-tag{font-size:10.5px}
+
+  /* newsletter + footer */
+  .newsletter h3{font-size:26px}
+  .newsletter p{font-size:13.5px}
+  .fbrand p{font-size:13px;line-height:1.75}
+  .fbrand a{font-size:13.5px}
+  .fcol h5{font-size:11px}
+  .fcol a{font-size:14px}
+  .fsearch p{font-size:12px;line-height:2}
+  .fbot{font-size:12px}
+
+  /* press + ugc */
+  .pr b{font-size:12.5px}
+  .pr span{font-size:11px}
+  .ugc span{font-size:11px}
+  .ugc b{font-size:11.5px}
+  .vid-note{font-size:12px}
+  .ugc-cta a{font-size:12px}
+
+  /* sticky mobile bar */
+  .msticky .matc{font-size:12px}
+  .msticky .matc small{font-size:10.5px}
+}
+
+@media(max-width:400px){
+  .pc h1{font-size:25px}
+  .shead h2{font-size:clamp(27px,8.5vw,34px)}
+  .dtile-type{font-size:20px}
+  .certlogos-row{grid-template-columns:repeat(2,1fr)}
+}
 </style>
 </head>
 <body>
@@ -1044,10 +1236,9 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 <!-- ===== PRICE & SAVINGS ===== -->
 <section class="blk psd">
   <div class="wrap">
-    <div class="shead rv"><span class="eyebrow">Diamond &amp; Pricing</span><h2>Choose your diamond</h2><p>Available in lab grown or natural, across four quality grades. Pick your diamond — the price updates instantly, and you can open a full breakup on any option.</p></div>
+    <div class="shead rv"><span class="eyebrow">Diamond &amp; Pricing</span><h2>Choose your <em>diamond</em></h2><p>Available in lab grown or natural, across four quality grades. Pick your diamond — the price updates instantly, and you can open a full breakup on any option.</p></div>
 
     <div class="dtiles-wrap rv">
-      <div class="dtype-head">DIAMOND · <b id="dLab">Lab Grown · EF VVS-VS</b></div>
       <div class="dtiles" id="dtiles">
         <div class="dtile sel" data-type="lab" data-grade="EF VVS-VS" data-price="249826">
           <div class="dtile-row">
@@ -1127,7 +1318,7 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 <!-- ===== MORE WAYS TO EXPLORE (relocated below Price & details) ===== -->
 <section class="blk" id="more-ways">
   <div class="wrap">
-    <div class="shead rv"><h2 style="font-size:clamp(32px,4.6vw,54px)">More Ways to Explore</h2></div>
+    <div class="shead rv"><h2 style="font-size:clamp(32px,4.6vw,54px)">More Ways to <em>Explore</em></h2></div>
     <div class="mways-carousel rv">
       <div class="mways-track" id="mwaysTrack">
         <div class="mways-slide">
@@ -1342,7 +1533,7 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 <!-- ===== COMMUNITY ===== -->
 <section class="blk">
   <div class="wrap">
-    <div class="shead rv"><span class="eyebrow">Styled by True Diamond</span><h2>Worn by our community</h2><p>Real moments from buyers who chose Mystical Petal — engagement, anniversary, and everyday.</p></div>
+    <div class="shead rv"><span class="eyebrow">Styled by True Diamond</span><h2>Worn by our <em>community</em></h2><p>Real moments from buyers who chose Mystical Petal — engagement, anniversary, and everyday.</p></div>
     <div class="ugc rv">
       <div><img loading="lazy" src="https://truediamond.in/cdn/shop/files/HarshandRushaliToi-et-MoiRing.jpg?v=1767963357&width=600" alt="Customer"><span><b>@rushali.h</b>"The petals just sit beautifully"</span></div>
       <div><img loading="lazy" src="https://truediamond.in/cdn/shop/files/Picsart_26-01-09_17-44-36-493.jpg?v=1767961815&width=600" alt="Pooja Hegde"><span><b>Pooja Hegde</b>Magazine feature</span></div>
@@ -1358,7 +1549,7 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 <!-- ===== 7 STEPS ===== -->
 <section class="blk" style="padding-top:0">
   <div class="wrap">
-    <div class="shead rv"><span class="eyebrow">The Atelier</span><h2>How your ring is made</h2><p>Each Mystical Petal is hand-crafted in our Mumbai atelier — from sketch to your finger in 7 steps.</p></div>
+    <div class="shead rv"><span class="eyebrow">The Atelier</span><h2>How your ring is <em>made</em></h2><p>Each Mystical Petal is hand-crafted in our Mumbai atelier — from sketch to your finger in 7 steps.</p></div>
     <div class="steps rv">
       <div class="step"><h5>Sketch</h5><p>Hand-drawn with you</p></div>
       <div class="step"><h5>3D model</h5><p>CAD render approval</p></div>
@@ -1443,7 +1634,7 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 <!-- ===== REVIEWS ===== -->
 <section class="blk" id="reviews">
   <div class="wrap">
-    <div class="shead rv"><span class="eyebrow">In Their Words</span><h2>Customer reviews</h2><p>137 verified reviews from buyers who actually purchased and received this ring.</p></div>
+    <div class="shead rv"><span class="eyebrow">In Their Words</span><h2>Customer <em>reviews</em></h2><p>137 verified reviews from buyers who actually purchased and received this ring.</p></div>
     <div class="rev-top rv">
       <div class="rev-score">
         <div class="big">4.8</div>
@@ -1581,7 +1772,7 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 <!-- ===== STORES ===== -->
 <section class="blk" id="stores" style="background:var(--bone)">
   <div class="wrap">
-    <div class="shead rv"><span class="eyebrow">Find It Near You</span><h2>Try Mystical Petal in person</h2><p>7 stores across India · Free home trial in metros</p></div>
+    <div class="shead rv"><span class="eyebrow">Find It Near You</span><h2>Try Mystical Petal <em>in person</em></h2><p>7 stores across India · Free home trial in metros</p></div>
     <div class="stores-filter rv">
       <button class="on" data-c="all">All</button>
       <button data-c="mumbai">Mumbai</button>
@@ -1662,6 +1853,27 @@ document.getElementById('mq').innerHTML+=document.getElementById('mq').innerHTML
 /* reveal */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* subtle parallax on editorial imagery */
+(()=>{
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const imgs=[...document.querySelectorAll('.about-grid .rv')].map(w=>w.querySelector('img')).filter(Boolean);
+  if(!imgs.length)return;
+  let ticking=false;
+  const upd=()=>{
+    const vh=innerHeight;
+    imgs.forEach(img=>{
+      const r=img.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh)return;
+      const off=((r.top+r.height/2)-vh/2)/vh; // -1..1
+      img.style.transform='scale(1.08) translateY('+(off*-18).toFixed(1)+'px)';
+    });
+    ticking=false;
+  };
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});
+  addEventListener('resize',upd,{passive:true});
+  upd();
+})();
 
 /* gallery */
 const gimg=document.getElementById('gimg'),gmain=document.getElementById('gmain');
@@ -1762,7 +1974,7 @@ function selectTile(t){
   document.querySelectorAll('.dtile').forEach(x=>x.classList.remove('sel'));
   t.classList.add('sel');
   dtype=t.dataset.type;dgrade=t.dataset.grade;
-  document.getElementById('dLab').textContent=(dtype==='lab'?'Lab Grown':'Natural')+' · '+dgrade;
+  var _dl=document.getElementById('dLab');if(_dl)_dl.textContent=(dtype==='lab'?'Lab Grown':'Natural')+' · '+dgrade;
   setPrice(+t.dataset.price);
 }
 document.querySelectorAll('.dtile').forEach(t=>{
