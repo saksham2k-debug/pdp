@@ -781,6 +781,67 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 .dtile-breakup .brk .k b{display:block;color:var(--noir);font-weight:500}
 .dtile-breakup .brk tr.total td{font-family:var(--display);font-size:16px;border-bottom:none;padding-top:14px}
 
+/* ===== aesthetic upgrades ===== */
+.cta1{margin-bottom:0}
+.book-row{margin-top:14px}
+/* reviews / faqs cards */
+.pc-jump{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.pcj{display:flex;align-items:center;gap:13px;border:1px solid var(--hairline);border-radius:var(--r-sm);padding:15px 16px;background:linear-gradient(180deg,#fff,var(--bone));transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
+.pcj:hover{border-color:var(--noir);transform:translateY(-2px);box-shadow:0 12px 26px -16px rgba(19,18,17,.35)}
+.pcj-ic{width:40px;height:40px;border-radius:50%;background:var(--champagne-lt);display:grid;place-items:center;flex-shrink:0}
+.pcj-ic svg{width:20px;height:20px;stroke:var(--champagne);fill:none;stroke-width:1.5}
+.pcj:first-child .pcj-ic svg{fill:var(--champagne);stroke:none}
+.pcj-tx{display:flex;flex-direction:column;gap:2px}
+.pcj-tx b{font-family:var(--display);font-size:18px;font-weight:500;line-height:1}
+.pcj-tx em{font-style:normal;font-size:11px;letter-spacing:.04em;color:var(--smoke)}
+.pcj-tx em i{font-style:normal;display:inline-block;transition:transform .25s}
+.pcj:hover .pcj-tx em i{transform:translateX(4px)}
+
+/* complimentary engraving */
+.engrave{margin:26px 0 28px;padding:22px 20px;border:1px solid var(--hairline);border-radius:var(--r-sm);background:linear-gradient(180deg,#fff,var(--bone))}
+.engrave-h{margin-bottom:10px;align-items:center}
+.engrave-h span{letter-spacing:.14em}
+.engrave-h em{background:var(--ok-bg);color:var(--ok);padding:3px 10px;border-radius:100px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.engrave p{margin-bottom:16px;line-height:1.65}
+.engrave input{padding:13px 16px;text-align:center;letter-spacing:.04em;border-radius:var(--r-sm)}
+.engrave-prev{margin-top:16px;min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:100px;border:1px dashed var(--hairline-dk);background:#fff;font-family:var(--display);font-style:italic;font-size:19px;color:var(--champagne);padding:10px 18px;text-align:center}
+.engrave-prev:empty{border-style:dashed}
+.engrave-prev:empty::before{content:attr(data-empty);font-style:normal;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--smoke);font-family:var(--ui)}
+
+/* certificate logo row (now in Certificate section) */
+.certlogos-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.certlogos-row .clogo{border:1px solid var(--hairline);border-radius:var(--r-sm);padding:15px 8px;text-align:center;background:#fff;display:flex;flex-direction:column;gap:3px;transition:.2s}
+.certlogos-row .clogo:hover{border-color:var(--champagne)}
+.certlogos-row .clogo b{font-family:var(--display);font-size:21px;color:var(--noir);letter-spacing:.05em}
+.certlogos-row .clogo span{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke)}
+
+/* premium more-ways carousel */
+.mways-carousel{position:relative;max-width:1040px;margin:0 auto}
+.mways-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.mways-track::-webkit-scrollbar{display:none}
+.mways-slide{flex:0 0 100%;scroll-snap-align:center;padding:0 2px}
+.mlux{position:relative;border-radius:var(--r);overflow:hidden;min-height:420px;display:flex;align-items:flex-end;isolation:isolate;box-shadow:0 26px 56px -34px rgba(19,18,17,.55)}
+.mlux-img{position:absolute;inset:0;z-index:-2}
+.mlux-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.mlux:hover .mlux-img img{transform:scale(1.06)}
+.mlux-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(19,18,17,0) 25%,rgba(19,18,17,.5) 60%,rgba(19,18,17,.88) 100%)}
+.mlux-body{padding:36px 42px 40px;max-width:560px}
+.mlux-tag{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--noir);background:var(--champagne);padding:6px 14px;border-radius:100px;margin-bottom:16px;font-weight:600}
+.mlux-body h3{color:#fff;font-size:clamp(28px,3vw,38px);margin-bottom:11px;font-weight:400}
+.mlux-body p{color:rgba(255,255,255,.85);font-size:14px;line-height:1.62;margin-bottom:20px;max-width:400px}
+.mlux-cta{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:#fff;border-bottom:1px solid rgba(255,255,255,.55);padding-bottom:4px;display:inline-block;transition:.25s}
+.mlux-cta i{font-style:normal;display:inline-block;transition:transform .25s;margin-left:5px}
+.mlux:hover .mlux-cta{border-color:var(--champagne);color:var(--champagne)}
+.mlux:hover .mlux-cta i{transform:translateX(5px)}
+.mways-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.92);border:1px solid var(--hairline);display:grid;place-items:center;z-index:4;box-shadow:0 6px 18px rgba(19,18,17,.16);transition:.2s;backdrop-filter:blur(4px)}
+.mways-nav:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+.mways-nav svg{width:19px;height:19px;stroke:var(--noir);fill:none;stroke-width:1.7}
+.mways-nav.prev{left:-16px}
+.mways-nav.next{right:-16px}
+.mways-dots{display:flex;gap:7px;justify-content:center;margin-top:22px}
+.mways-dots button{width:7px;height:7px;border-radius:50%;background:var(--hairline-dk);padding:0;transition:.25s}
+.mways-dots button.on{background:var(--noir);width:24px;border-radius:4px}
+
 /* mobile optimisation — diamond tiles + more-ways */
 @media(max-width:768px){
   .dtiles-wrap{max-width:none}
@@ -795,9 +856,19 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
   .dtile-brk{margin-top:12px}
   .dtile-breakup .brk td{padding:9px 2px}
   .certblock{margin-top:24px!important;padding:22px 18px}
-  .mways-band{max-width:none}
-  .mways-band .mways-grid{grid-template-columns:1fr}
-  .mways-band .mway{padding:15px 16px}
+  .mways-carousel{max-width:none}
+  .mways-nav{display:none}
+  .mlux{min-height:340px}
+  .mlux-body{padding:26px 24px 28px}
+  .mlux-body h3{font-size:26px}
+  .mlux-body p{font-size:13px}
+  .certlogos-row{grid-template-columns:repeat(4,1fr);gap:8px}
+  .pcj{padding:13px 14px}
+  .pcj-tx b{font-size:16px}
+}
+
+@media(max-width:420px){
+  .certlogos-row{grid-template-columns:repeat(2,1fr)}
 }
 
 /* mobile: keep flush gallery but rounded buy elements */
@@ -882,8 +953,14 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 
       <!-- jump cards below pricing -->
       <div class="pc-jump">
-        <a href="#reviews" class="gjump-card"><b>Reviews</b><em>137 verified →</em></a>
-        <a href="#faq" class="gjump-card"><span class="qic">?</span><b>Faqs</b><em>Read answers →</em></a>
+        <a href="#reviews" class="pcj">
+          <span class="pcj-ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.2l5.9-.9L12 3z"/></svg></span>
+          <span class="pcj-tx"><b>Reviews</b><em>137 verified <i>→</i></em></span>
+        </a>
+        <a href="#faq" class="pcj">
+          <span class="pcj-ic"><svg viewBox="0 0 24 24"><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.5-3 4.5"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span>
+          <span class="pcj-tx"><b>FAQs</b><em>Read answers <i>→</i></em></span>
+        </a>
       </div>
 
       <!-- description (Lucira Read More pattern) -->
@@ -933,10 +1010,9 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
       <!-- engraving -->
       <div class="engrave">
         <div class="engrave-h"><span>✦ Complimentary Engraving</span><em>Free</em></div>
-        <p>Personalise the inner band with a date, name or message. Up to 18 characters, laser-engraved before dispatch.</p>
+        <p>Personalise the inner band with a date, name or message — up to 18 characters, laser-engraved before dispatch.</p>
         <input type="text" id="engIn" maxlength="18" placeholder="e.g. S ♥ A · 14.02.26" aria-label="Engraving text">
-        <div class="engrave-prev" id="engPrev"></div>
-        <div class="engrave-ct"><span id="engCt">0</span>/18</div>
+        <div class="engrave-prev" id="engPrev" data-empty="Your engraving appears here"></div>
       </div>
 
       <div class="deliv">
@@ -944,12 +1020,7 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
         <span><b>Free delivery across India</b> · Made-to-order · Ships in 7–10 working days · Lifetime resizing</span>
       </div>
 
-      <div class="avail-status in" id="availStatus">
-        <span class="sdot"></span><span><b id="availLabel">In Stock</b> <span id="availSub">· ready to ship insured</span></span>
-      </div>
-
       <button class="cta1" id="atc">Add to Cart</button>
-      <p class="save-scheme">You save <b>₹ 24,983</b> with the True Harvest scheme</p>
       <div class="book-row">
         <button class="book-btn" id="homeVisit"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Try At Home<small>Free · metros</small></button>
         <button class="book-btn" id="storeVisit"><svg viewBox="0 0 24 24"><path d="M4 4h16l-1 5H5L4 4z"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg>Visit Our Store<small>7 cities</small></button>
@@ -1014,20 +1085,6 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
       <p class="psd-note" style="text-align:center;margin-top:18px"><b>Note:</b> Handcrafted &amp; personalised — slight metal-weight variance is natural across sizes. All diamonds IGI certified &amp; laser-inscribed.</p>
     </div>
 
-    <div class="certblock rv" style="margin-top:36px;border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden">
-      <div class="certblock-l">
-        <span class="eyebrow">Certified Quality, Guaranteed</span>
-        <p>Every Mystical Petal is independently graded and hallmarked. Your certificate travels with the ring — and its number is verifiable online, forever.</p>
-        <a href="#" class="certblock-cta">See sample certificate →</a>
-      </div>
-      <div class="certlogos-grid">
-        <div class="clogo"><b>IGI</b><span>Diamond report</span></div>
-        <div class="clogo"><b>GIA</b><span>On request</span></div>
-        <div class="clogo"><b>SGL</b><span>Gem lab</span></div>
-        <div class="clogo"><b>BIS</b><span>Gold hallmark</span></div>
-      </div>
-    </div>
-
     <!-- policy accordions -->
     <div class="pol rv">
       <div class="pitem">
@@ -1068,12 +1125,39 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
 </section>
 
 <!-- ===== MORE WAYS TO EXPLORE (relocated below Price & details) ===== -->
-<section class="blk" style="padding-top:0">
+<section class="blk" id="more-ways">
   <div class="wrap">
-    <div class="mways-band">
-      <p class="mways-h" style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-bottom:14px;text-align:center">More Ways to Explore</p>
-      <div class="mscheme"><b>True Harvest Plan</b> — Pay <b>10 monthly instalments</b>, get the 11th free.<a href="#">Calculate</a></div>
-      <div class="mscheme"><b>Old Gold Exchange</b> — Bring your old gold, get current market value off this ring.<a href="#">How it works</a></div>
+    <div class="shead rv"><h2 style="font-size:clamp(32px,4.6vw,54px)">More Ways to Explore</h2></div>
+    <div class="mways-carousel rv">
+      <div class="mways-track" id="mwaysTrack">
+        <div class="mways-slide">
+          <a class="mlux" href="#">
+            <div class="mlux-img"><img loading="lazy" src="https://truediamond.in/cdn/shop/files/Picsart_26-01-09_17-44-36-493.jpg?v=1767961815&width=1100" alt="True Harvest Plan"></div>
+            <div class="mlux-shade"></div>
+            <div class="mlux-body">
+              <span class="mlux-tag">Flexible Payment</span>
+              <h3>True Harvest Plan</h3>
+              <p>Pay in 10 monthly instalments — the 11th is on us. Wear your Portuguese cut sooner, interest-free.</p>
+              <span class="mlux-cta">Calculate my plan <i>→</i></span>
+            </div>
+          </a>
+        </div>
+        <div class="mways-slide">
+          <a class="mlux" href="#">
+            <div class="mlux-img"><img loading="lazy" src="https://truediamond.in/cdn/shop/files/Untitled_design_22.png?v=1768042333&width=1100" alt="Old Gold Exchange"></div>
+            <div class="mlux-shade"></div>
+            <div class="mlux-body">
+              <span class="mlux-tag">Trade &amp; Save</span>
+              <h3>Old Gold Exchange</h3>
+              <p>Bring in your old gold and get its full current market value deducted from this ring.</p>
+              <span class="mlux-cta">See how it works <i>→</i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <button class="mways-nav prev" id="mwaysPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="mways-nav next" id="mwaysNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="mways-dots" id="mwaysDots"></div>
     </div>
   </div>
 </section>
@@ -1309,6 +1393,12 @@ footer{background:var(--bone);color:var(--smoke);border-top:1px solid var(--hair
           <li>Verify online at igi.org with the cert number</li>
           <li>GIA upgrade available at order time</li>
         </ul>
+        <div class="certlogos-row">
+          <div class="clogo"><b>IGI</b><span>Diamond report</span></div>
+          <div class="clogo"><b>GIA</b><span>On request</span></div>
+          <div class="clogo"><b>SGL</b><span>Gem lab</span></div>
+          <div class="clogo"><b>BIS</b><span>Gold hallmark</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1605,6 +1695,28 @@ gmain.addEventListener('click',e=>{
   },{passive:true});
 })();
 
+/* more-ways carousel */
+(()=>{
+  const track=document.getElementById('mwaysTrack');if(!track)return;
+  const dots=document.getElementById('mwaysDots'),prev=document.getElementById('mwaysPrev'),next=document.getElementById('mwaysNext');
+  const n=track.children.length;
+  for(let k=0;k<n;k++){const b=document.createElement('button');if(k===0)b.classList.add('on');b.setAttribute('aria-label','Slide '+(k+1));
+    b.addEventListener('click',()=>track.scrollTo({left:track.clientWidth*k,behavior:'smooth'}));dots.appendChild(b);}
+  const cur=()=>Math.round(track.scrollLeft/track.clientWidth);
+  prev&&prev.addEventListener('click',()=>track.scrollTo({left:track.clientWidth*Math.max(0,cur()-1),behavior:'smooth'}));
+  next&&next.addEventListener('click',()=>track.scrollTo({left:track.clientWidth*Math.min(n-1,cur()+1),behavior:'smooth'}));
+  let raf;
+  track.addEventListener('scroll',()=>{
+    cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(()=>{
+      const i=cur();
+      [...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i));
+      if(prev)prev.style.opacity=i===0?'.4':'1';
+      if(next)next.style.opacity=i===n-1?'.4':'1';
+    });
+  },{passive:true});
+})();
+
 /* trust carousel */
 (()=>{
   const track=document.getElementById('tcarTrack'),dots=document.getElementById('tcarDots');
@@ -1666,8 +1778,9 @@ document.querySelectorAll('.dtile').forEach(t=>{
 });
 
 function updateAvail(){
-  const inStock=(dtype==='lab'&&metalStock==='in'&&sizeStock==='in');
   const el=document.getElementById('availStatus');
+  if(!el)return;
+  const inStock=(dtype==='lab'&&metalStock==='in'&&sizeStock==='in');
   el.classList.toggle('in',inStock);el.classList.toggle('made',!inStock);
   document.getElementById('availLabel').textContent=inStock?'In Stock':'Made to Order';
   document.getElementById('availSub').textContent=inStock?'· ready to ship insured':'· handcrafted & shipped in 7–10 days';
@@ -1719,7 +1832,6 @@ for(let s=5;s<=18;s++){
 const engIn=document.getElementById('engIn');
 engIn.addEventListener('input',()=>{
   document.getElementById('engPrev').textContent=engIn.value;
-  document.getElementById('engCt').textContent=engIn.value.length;
 });
 
 /* price tabs */
