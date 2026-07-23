@@ -1538,6 +1538,27 @@ main{padding-bottom:0}
   .certstrip-logos img{height:54px!important;max-width:46%!important}
 }
 
+/* ═══ SPACING TIGHTEN — remove dead air between sections ═══ */
+section.blk{padding:clamp(56px,7vw,88px) 0}
+.hero{padding:24px 0 40px}
+.shead{margin:0 auto clamp(34px,4.5vw,48px)}
+#choose-diamond{padding-top:clamp(32px,5vw,48px)}
+#more-ways{padding-top:clamp(36px,5vw,52px)}
+.bespoke{padding:clamp(44px,6vw,72px) 24px}
+
+@media(max-width:768px){
+  section.blk{padding:38px 0!important}
+  .hero{padding:8px 0 20px!important;gap:0}
+  .shead{margin-bottom:24px!important}
+  .shead p{margin-top:14px}
+  #choose-diamond{padding-top:26px!important}
+  #more-ways{padding-top:30px!important}
+  .bespoke{padding:38px 20px!important}
+  main{padding-bottom:0!important}
+  .pol{margin-top:24px}
+  .mways{margin-top:4px}
+}
+
 </style>
 </head>
 <body>
@@ -1614,7 +1635,7 @@ main{padding-bottom:0}
       <!-- reviews + faqs — clean black cards -->
       <!-- product details (general) -->
       <div class="pdt">
-        <div class="pdt-h"><span>Product Details</span><em>SKU · RN/TDPORT/7/Y/4</em></div>
+        <div class="pdt-h"><span>Product Details</span></div>
         <p class="pdt-intro">One 3.00 ct Portuguese centre stone — the world's brightest cut — surrounded by 6 marquise petals. All lab grown, all IGI certified, all laser-inscribed.</p>
 
         <div class="pdt-stats">
