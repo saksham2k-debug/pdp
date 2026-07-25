@@ -1559,6 +1559,41 @@ section.blk{padding:clamp(56px,7vw,88px) 0}
   .mways{margin-top:4px}
 }
 
+/* ═══ customize drawer — diamond quality cards + live price ═══ */
+.cdgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cd{display:flex;flex-direction:column;align-items:center;gap:4px;background:#fff;border:1px solid var(--hairline-dk);border-radius:var(--r-sm);padding:16px 8px;text-align:center;transition:border-color .25s,box-shadow .25s}
+.cd:hover{border-color:var(--noir)}
+.cd.sel{border-color:var(--red);box-shadow:inset 0 0 0 1px var(--red)}
+.cd-g{font-size:15px;font-weight:600;letter-spacing:.02em;color:var(--noir)}
+.cd-t{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke)}
+.cd.sel .cd-g{color:var(--red)}
+
+/* live price bar — sticky footer at drawer bottom */
+.cust-pricebar{display:none}
+@media(max-width:768px){
+  #customizeArea{padding-bottom:0!important}
+  .cust-foot{position:sticky;bottom:0;z-index:3;background:#fff;margin:8px -20px 0;padding:0 20px 12px;box-shadow:0 -10px 20px -12px rgba(19,18,17,.18)}
+  .cust-pricebar{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    border-top:1px solid var(--hairline);padding:14px 0 12px}
+  .cpb-l{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);display:flex;flex-direction:column;gap:4px}
+  .cpb-l em{font-style:normal;font-size:11.5px;letter-spacing:.02em;text-transform:none;color:var(--noir)}
+  .cpb-v{font-family:var(--display,'Fraunces');font-size:22px;font-weight:500;white-space:nowrap}
+  .cust-done{margin-top:0}
+  .cdgrid{gap:8px}
+  .cd-g{font-size:14.5px}
+}
+
+/* ═══ summary bar — 3 labelled columns, one line ═══ */
+@media(max-width:768px){
+  .cs-cols{display:grid!important;grid-template-columns:1fr 1fr 1fr;gap:0!important;align-items:center;text-align:center}
+  .cs-col{display:flex;flex-direction:column;align-items:center;gap:5px;padding:0 6px}
+  .cs-col+.cs-col{border-left:1px solid var(--hairline)}
+  .cs-lbl{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--smoke)}
+  .cs-val{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;line-height:1.3}
+  .cs-val b{font-weight:600}
+  .cs-val .dot{width:14px;height:14px;flex-shrink:0}
+}
+
 </style>
 </head>
 <body>
@@ -1633,6 +1668,83 @@ section.blk{padding:clamp(56px,7vw,88px) 0}
       <span id="ctxVar" hidden>14KT Yellow Gold, size 12</span>
 
       <!-- reviews + faqs — clean black cards -->
+      <!-- mobile customize summary -->
+      <div class="cust-summary">
+        <div class="cs-h"><span>Size &amp; Customization</span><a href="#">Size Guide</a></div>
+        <div class="cs-sel cs-cols">
+          <div class="cs-col">
+            <span class="cs-lbl">Metal</span>
+            <span class="cs-val"><span class="dot m-y" id="csDot"></span><b id="csMetal">14KT Yellow</b></span>
+          </div>
+          <div class="cs-col">
+            <span class="cs-lbl">Size</span>
+            <span class="cs-val"><b id="csSize">12 IND</b></span>
+          </div>
+          <div class="cs-col">
+            <span class="cs-lbl">Diamond</span>
+            <span class="cs-val"><b id="csDia">Lab · EF-VVS</b></span>
+          </div>
+        </div>
+        <button class="cs-btn" id="custOpen">Customize</button>
+      </div>
+
+      <!-- colour + size : inline on desktop, drawer on mobile -->
+      <div id="customizeArea">
+        <div class="cust-grip"></div>
+        <div class="cust-drawer-head"><b>Size &amp; Customization</b><button id="custClose" aria-label="Close">×</button></div>
+
+        <!-- diamond quality -->
+        <div class="opt">
+          <div class="opt-h"><span class="opt-l">Diamond <span id="cdLab">Lab Grown · EF VVS-VS</span></span><a class="opt-a" href="#">Diamond guide</a></div>
+          <div class="cdgrid">
+            <button class="cd sel" type="button" data-type="lab" data-grade="EF VVS-VS" data-price="249826">
+              <span class="cd-g">EF VVS-VS</span>
+              <span class="cd-t">Lab Grown</span>
+            </button>
+            <button class="cd" type="button" data-type="nat" data-grade="EF VVS-VS" data-price="759675">
+              <span class="cd-g">EF VVS-VS</span>
+              <span class="cd-t">Natural</span>
+            </button>
+            <button class="cd" type="button" data-type="nat" data-grade="GH-VS" data-price="420000">
+              <span class="cd-g">GH-VS</span>
+              <span class="cd-t">Natural</span>
+            </button>
+            <button class="cd" type="button" data-type="nat" data-grade="SI-IJ" data-price="295000">
+              <span class="cd-g">SI-IJ</span>
+              <span class="cd-t">Natural</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- metal + karat : 6 swatches -->
+        <div class="opt">
+          <div class="opt-h"><span class="opt-l">Colour <span id="mLab">14KT Yellow Gold</span></span></div>
+          <div class="metals" id="metals">
+            <button class="mt sel" data-n="14KT Yellow Gold" data-stock="in"><i class="m-y">14KT</i>Yellow</button>
+            <button class="mt" data-n="14KT Rose Gold" data-stock="made"><i class="m-r">14KT</i>Rose</button>
+            <button class="mt" data-n="14KT White Gold" data-stock="made"><i class="m-w">14KT</i>White</button>
+            <button class="mt" data-n="18KT Yellow Gold" data-stock="made"><i class="m-y">18KT</i>Yellow</button>
+            <button class="mt" data-n="18KT Rose Gold" data-stock="made"><i class="m-r">18KT</i>Rose</button>
+            <button class="mt" data-n="18KT White Gold" data-stock="made"><i class="m-w">18KT</i>White</button>
+          </div>
+        </div>
+
+        <!-- ring size -->
+        <div class="opt">
+          <div class="opt-h"><span class="opt-l">Size <span id="szLab">12 IND</span></span><a class="opt-a" href="#">Size guide</a></div>
+          <div class="sizes" id="sizes"></div>
+          <p class="size-note">Watch this <a href="#">quick video</a> to measure your ring right. Didn't get the size right? <a href="#">We'll exchange it</a> — free, within 7 days.</p>
+        </div>
+
+        <div class="cust-foot">
+          <div class="cust-pricebar">
+            <span class="cpb-l">Total <em id="cpbVar">Lab Grown · 14KT Yellow · Size 12</em></span>
+            <span class="cpb-v" id="cpbPrice">₹ 2,49,826</span>
+          </div>
+          <button class="cust-done" id="custDone">Done</button>
+        </div>
+      </div>
+
       <!-- product details (general) -->
       <div class="pdt">
         <div class="pdt-h"><span>Product Details</span></div>
@@ -1698,44 +1810,6 @@ section.blk{padding:clamp(56px,7vw,88px) 0}
         </div>
 
         <button class="pdt-toggle" id="pdtToggle" type="button" aria-expanded="false">View more</button>
-      </div>
-
-      <!-- mobile customize summary -->
-      <div class="cust-summary">
-        <div class="cs-h"><span>Size &amp; Customization</span><a href="#">Size Guide</a></div>
-        <div class="cs-sel">
-          <span class="chip"><span class="dot m-y" id="csDot"></span><b id="csMetal">14KT Yellow Gold</b></span>
-          <span class="chip">Size : <b id="csSize">12 IND</b></span>
-        </div>
-        <button class="cs-btn" id="custOpen">Customize</button>
-      </div>
-
-      <!-- colour + size : inline on desktop, drawer on mobile -->
-      <div id="customizeArea">
-        <div class="cust-grip"></div>
-        <div class="cust-drawer-head"><b>Size &amp; Customization</b><button id="custClose" aria-label="Close">×</button></div>
-
-        <!-- metal + karat : 6 swatches -->
-        <div class="opt">
-          <div class="opt-h"><span class="opt-l">Colour <span id="mLab">14KT Yellow Gold</span></span></div>
-          <div class="metals" id="metals">
-            <button class="mt sel" data-n="14KT Yellow Gold" data-stock="in"><i class="m-y">14KT</i>Yellow</button>
-            <button class="mt" data-n="14KT Rose Gold" data-stock="made"><i class="m-r">14KT</i>Rose</button>
-            <button class="mt" data-n="14KT White Gold" data-stock="made"><i class="m-w">14KT</i>White</button>
-            <button class="mt" data-n="18KT Yellow Gold" data-stock="made"><i class="m-y">18KT</i>Yellow</button>
-            <button class="mt" data-n="18KT Rose Gold" data-stock="made"><i class="m-r">18KT</i>Rose</button>
-            <button class="mt" data-n="18KT White Gold" data-stock="made"><i class="m-w">18KT</i>White</button>
-          </div>
-        </div>
-
-        <!-- ring size -->
-        <div class="opt">
-          <div class="opt-h"><span class="opt-l">Size <span id="szLab">12 IND</span></span><a class="opt-a" href="#">Size guide</a></div>
-          <div class="sizes" id="sizes"></div>
-          <p class="size-note">Watch this <a href="#">quick video</a> to measure your ring right. Didn't get the size right? <a href="#">We'll exchange it</a> — free, within 7 days.</p>
-        </div>
-
-        <button class="cust-done" id="custDone">Done</button>
       </div>
 
       <!-- engraving (boxed like customize) -->
@@ -2324,12 +2398,20 @@ function breakupHTML(p){
 }
 
 /* stacked diamond tiles */
+function syncDiamond(type,grade,p){
+  dtype=type;dgrade=grade;
+  document.querySelectorAll('.dtile').forEach(x=>x.classList.toggle('sel',x.dataset.type===type&&x.dataset.grade===grade));
+  document.querySelectorAll('.cd').forEach(x=>x.classList.toggle('sel',x.dataset.type===type&&x.dataset.grade===grade));
+  const cl=document.getElementById('cdLab');
+  if(cl)cl.textContent=(type==='lab'?'Lab Grown':'Natural')+' · '+grade;
+  var _dl=document.getElementById('dLab');if(_dl)_dl.textContent=(type==='lab'?'Lab Grown':'Natural')+' · '+grade;
+  setPrice(p);
+}
+document.querySelectorAll('.cd').forEach(b=>b.addEventListener('click',()=>{
+  syncDiamond(b.dataset.type,b.dataset.grade,+b.dataset.price);
+}));
 function selectTile(t){
-  document.querySelectorAll('.dtile').forEach(x=>x.classList.remove('sel'));
-  t.classList.add('sel');
-  dtype=t.dataset.type;dgrade=t.dataset.grade;
-  var _dl=document.getElementById('dLab');if(_dl)_dl.textContent=(dtype==='lab'?'Lab Grown':'Natural')+' · '+dgrade;
-  setPrice(+t.dataset.price);
+  syncDiamond(t.dataset.type,t.dataset.grade,+t.dataset.price);
 }
 document.querySelectorAll('.dtile').forEach(t=>{
   const brkBtn=t.querySelector('.dtile-brk'),brkBox=t.querySelector('.dtile-breakup');
@@ -2356,9 +2438,14 @@ function ctx(){
   document.getElementById('dsVar').textContent=metal+' · Size '+size;
   document.getElementById('msVar').textContent=fmt(price)+' · '+metal.replace(' Gold','')+' · Size '+size;
   /* mobile summary card */
-  const csM=document.getElementById('csMetal');if(csM)csM.textContent=metal;
+  const csM=document.getElementById('csMetal');if(csM)csM.textContent=metal.replace(' Gold','');
   const csS=document.getElementById('csSize');if(csS)csS.textContent=size+' IND';
   const csD=document.getElementById('csDot');if(csD)csD.className='dot '+(metal.includes('Rose')?'m-r':metal.includes('White')?'m-w':'m-y');
+  const csDia=document.getElementById('csDia');if(csDia)csDia.textContent=(dtype==='lab'?'Lab':'Natural')+' · '+dgrade;
+  /* drawer live price bar */
+  const cpv=document.getElementById('cpbPrice');if(cpv)cpv.textContent=fmt(price);
+  const cpl=document.getElementById('cpbVar');
+  if(cpl)cpl.textContent=(dtype==='lab'?'Lab Grown':'Natural')+' · '+metal.replace(' Gold','')+' · Size '+size;
   updateAvail();
 }
 document.querySelectorAll('#metals .mt').forEach(m=>m.addEventListener('click',()=>{
