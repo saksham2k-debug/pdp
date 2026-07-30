@@ -1623,11 +1623,20 @@ section.blk{padding:clamp(56px,7vw,88px) 0}
 .pol-sec{padding-bottom:clamp(24px,4vw,36px)!important}
 @media(max-width:768px){.pol-sec{padding-top:0!important;padding-bottom:20px!important}.pol-sec .pol{margin-top:0}}
 
-/* Choose your diamond — bordered box instead of beige band */
+/* Choose your diamond — clean stacked tiles */
 .psd{background:var(--bone)}
-#choose-diamond{padding-top:0!important;padding-bottom:0!important;margin:0}
-.pcd-band{background:transparent;border:1px solid var(--hairline-dk);border-radius:var(--r-sm);margin:8px 0 4px;padding:22px 18px}
-@media(max-width:768px){.pcd-band{padding:20px 16px}}
+#choose-diamond{padding-top:0!important;padding-bottom:0!important;margin:0 0 4px}
+.pcd-band{background:transparent;border:none;border-radius:0;margin:6px 0 4px;padding:0}
+.pcd-band .dtiles{display:flex;flex-direction:column;gap:10px;border-top:none}
+.pcd-band .dtile{border:1px solid var(--hairline-dk)!important;border-radius:var(--r-sm)!important;background:#fff!important;box-shadow:none!important;padding:16px 16px!important;transition:border-color .25s}
+.pcd-band .dtile::before{display:none!important}
+.pcd-band .dtile.sel{border-color:var(--red)!important;box-shadow:inset 0 0 0 1px var(--red)!important}
+.pcd-band .dtile-radio{border-color:var(--hairline-dk)}
+.pcd-band .dtile.sel .dtile-radio{border-color:var(--red)}
+.pcd-band .dtile.sel .dtile-radio::after{background:var(--red)}
+.pcd-band .dtile-brk{color:var(--red)!important}
+.pcd-band .dtile-type{font-size:16px}
+@media(max-width:768px){.pcd-band .dtile{padding:15px 14px!important}}
 
 </style>
 </head>
@@ -1756,9 +1765,7 @@ section.blk{padding:clamp(56px,7vw,88px) 0}
         </div>
       </div>
 
-    <div class="pcd-band">
-    <div class="shead rv" id="choose-diamond"><h2>Choose your <em>diamond</em></h2><p>Available in lab grown or natural, across four quality grades. Pick your diamond — the price updates instantly, and you can open a full breakup on any option.</p></div>
-
+    <div class="pcd-band" id="choose-diamond">
     <div class="dtiles-wrap rv">
       <div class="dtiles" id="dtiles">
         <div class="dtile sel" data-type="lab" data-grade="EF VVS-VS" data-price="249826">
