@@ -1950,6 +1950,96 @@ section.pol-sec{padding:0 0 clamp(18px,3vw,30px)!important;margin:0!important}
   .store-cta{grid-template-columns:1fr 1fr}
 }
 
+/* ═══ THEME-ACCURATE (Kalles): inline selectors, no custom drawer ═══ */
+/* the mobile summary card + Customize button go away — selectors are always inline */
+.cust-summary{display:none!important}
+/* the drawer becomes a plain inline block on all screens */
+#customizeArea{position:static!important;transform:none!important;inset:auto!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;
+  width:auto!important;max-width:none!important;height:auto!important;max-height:none!important;
+  background:transparent!important;box-shadow:none!important;border-radius:0!important;
+  padding:0!important;margin:0 0 8px!important;z-index:auto!important;overflow:visible!important;
+  visibility:visible!important;opacity:1!important;pointer-events:auto!important;transition:none!important}
+.cust-grip,.cust-drawer-head,.cust-foot,.cust-backdrop,#custBackdrop{display:none!important}
+/* metal swatches inline */
+#metals{display:flex!important;flex-wrap:wrap!important;gap:10px!important;max-width:none!important;grid-template-columns:none!important}
+#metals .mt{width:auto!important;min-width:0!important}
+/* inline engraving line-item field */
+.engrave-input{width:100%;border:none;border-bottom:1px solid var(--hairline-dk);background:transparent;padding:8px 0;font-family:var(--display,'Fraunces');font-style:italic;font-size:15px;color:var(--noir)}
+.engrave-input:focus{outline:none;border-color:var(--red)}
+.engrave-input::placeholder{font-style:italic;color:var(--smoke)}
+
+/* ═══ separate price breakup block (outside the form) ═══ */
+.pbreak{margin:0 0 20px}
+.pbreak-toggle{width:100%;background:var(--paper);border:1px solid var(--hairline-dk);border-radius:var(--r-sm);padding:14px 16px;display:flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--noir);font-weight:500;cursor:pointer;transition:border-color .2s ease,background-color .2s ease}
+.pbreak-toggle:hover{border-color:var(--noir)}
+.pbreak-toggle span{flex:1;text-align:left}
+.pbreak-ic{width:17px;height:17px;fill:none;stroke:var(--red);stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round;flex-shrink:0}
+.pbreak-chev{width:16px;height:16px;fill:none;stroke:var(--noir);stroke-width:1.8;flex-shrink:0;transition:transform .3s ease}
+.pbreak.open .pbreak-toggle{border-color:var(--noir);border-bottom-left-radius:0;border-bottom-right-radius:0}
+.pbreak.open .pbreak-chev{transform:rotate(180deg)}
+.pbreak-body{max-height:0;overflow:hidden;transition:max-height .35s ease;border:none;border-radius:0 0 var(--r-sm) var(--r-sm);background:var(--paper)}
+.pbreak.open .pbreak-body{max-height:420px;border:1px solid var(--noir);border-top:none}
+.pbreak-body .brk{width:100%;border-collapse:collapse;font-size:13px;padding:0}
+.pbreak-body .brk{display:table;width:calc(100% - 32px);margin:6px 16px 14px}
+.pbreak-body .brk td{padding:9px 0;border-bottom:1px solid rgba(27,26,24,.08);vertical-align:top}
+.pbreak-body .brk td.k b{display:block;font-weight:500}
+.pbreak-body .brk td:last-child{text-align:right;white-space:nowrap}
+.pbreak-body .brk tr.total td{border-bottom:none;padding-top:12px;font-weight:600;font-size:14px}
+
+/* ═══ size dropdown — custom tile ═══ */
+.opt-size{margin-top:22px;padding-top:0;border-top:none}
+.opt-size .opt-h{margin-bottom:12px}
+.size-dd{position:relative;width:100%}
+.size-dd-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--hairline-dk);border-radius:var(--r-sm);background:var(--paper);padding:16px;font-family:var(--sans,inherit);font-size:14.5px;color:var(--noir);cursor:pointer;transition:border-color .2s ease;text-align:left}
+.size-dd-btn:hover{border-color:var(--noir)}
+.size-dd.open .size-dd-btn{border-color:var(--noir);border-bottom-left-radius:0;border-bottom-right-radius:0}
+.size-dd-chev{width:16px;height:16px;flex-shrink:0;transition:transform .25s ease;stroke:var(--noir)}
+.size-dd.open .size-dd-chev{transform:rotate(180deg)}
+.size-dd-list{position:absolute;top:100%;left:0;right:0;z-index:30;margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--noir);border-top:none;border-radius:0 0 var(--r-sm) var(--r-sm);max-height:264px;overflow-y:auto;display:none;box-shadow:0 24px 44px -26px rgba(0,0,0,.32)}
+.size-dd.open .size-dd-list{display:block}
+.size-dd-list li{padding:12px 10px;border-radius:8px;font-size:14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:background-color .15s ease}
+.size-dd-list li:hover{background:var(--bone)}
+.size-dd-list li.sel{color:var(--red);font-weight:500}
+.size-dd-list li .st{font-size:11px;color:var(--smoke);letter-spacing:.02em}
+.size-dd-list li.sel .st{color:var(--red)}
+
+/* diamond section heading + relocated help line */
+.opt-h--dia{margin-top:22px;margin-bottom:14px}
+.help-line{text-align:center;font-size:12px;color:var(--smoke);margin:14px 0 4px;line-height:1.6}
+.help-line a{color:var(--red);border-bottom:1px solid rgba(158,43,37,.4);padding-bottom:1px;font-weight:500;white-space:nowrap}
+.help-line a:hover{border-color:var(--red)}
+
+/* Product Details removed — policies directly follows the buy panel, zero gap */
+section.pol-sec{padding-top:0!important}
+@media(max-width:768px){section.pol-sec{padding-top:0!important}}
+.hero{padding-bottom:0!important}
+@media(max-width:768px){.hero{padding-bottom:0!important}}
+.pc{padding-bottom:0!important}
+
+/* stores: red "near you" + carousel */
+.stores-sec .shead h2 em{color:var(--red)}
+.store-carousel{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:1040px;margin:0 auto}
+.store-carousel::-webkit-scrollbar{display:none}
+.store-track{display:flex}
+.store-slide{flex:0 0 100%;min-width:0;scroll-snap-align:center}
+.store-dots{display:flex;justify-content:center;gap:7px;margin-top:22px}
+.store-dots button{width:7px;height:7px;border-radius:50%;background:var(--hairline-dk);border:none;padding:0;cursor:pointer;transition:background .25s,width .25s}
+.store-dots button.on{background:var(--noir);width:20px;border-radius:4px}
+
+.store-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:40px;height:40px;border-radius:50%;background:rgba(252,251,249,.92);backdrop-filter:blur(6px);border:none;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px -8px rgba(0,0,0,.4);transition:background .2s}
+.store-arrow:hover{background:#fff}
+.store-arrow svg{width:18px;height:18px;fill:none;stroke:var(--noir);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.store-arrow.prev{left:14px}
+.store-arrow.next{right:14px}
+@media(max-width:768px){.store-arrow{width:34px;height:34px}.store-arrow svg{width:16px;height:16px}}
+
+/* bespoke eyebrow → red */
+.bespoke-sec .bespoke .eyebrow{color:var(--red)!important}
+
+/* diamond grade inline on same line as type */
+.dtile-type .dtile-grade{display:inline;margin-left:6px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--smoke);font-family:var(--sans,inherit);vertical-align:middle}
+.dtile.sel .dtile-type .dtile-grade{color:var(--red)}
+
 </style>
 </head>
 <body>
@@ -2049,74 +2139,73 @@ section.pol-sec{padding:0 0 clamp(18px,3vw,30px)!important;margin:0!important}
         <div class="cust-grip"></div>
         <div class="cust-drawer-head"><b>Size &amp; Customization</b><button id="custClose" aria-label="Close">×</button></div>
 
-        <!-- metal + karat : 6 swatches -->
+        <!-- metal + karat -->
         <div class="opt">
-          <div class="opt-h"><span class="opt-l">Colour <span id="mLab">14KT Yellow Gold</span></span></div>
+          <div class="opt-h"><span class="opt-l">Metal <span id="mLab">14KT Yellow Gold</span></span></div>
           <div class="metals" id="metals">
             <button class="mt sel" data-n="14KT Yellow Gold" data-stock="in"><i class="m-y">14KT</i>Yellow</button>
             <button class="mt" data-n="18KT Yellow Gold" data-stock="made"><i class="m-y">18KT</i>Yellow</button>
           </div>
         </div>
 
-        <!-- ring size -->
-        <div class="opt">
-          <div class="opt-h"><span class="opt-l">Size <span id="szLab">12 IND</span></span><a class="opt-a" href="#">Size guide</a></div>
-          <div class="sizes" id="sizes"></div>
-          <p class="cust-callout">Looking for other sizes or metal colours? <a href="https://wa.me/919076009085" target="_blank" rel="noopener">Contact us here</a></p>
-        </div>
-
-        <div class="cust-foot">
-          <div class="cust-pricebar">
-            <span class="cpb-l">Total <em id="cpbVar">Lab Grown · 14KT Yellow · Size 12</em></span>
-            <span class="cpb-v" id="cpbPrice">₹ 2,49,826</span>
-          </div>
-          <button class="cust-done" id="custDone">Done</button>
-        </div>
       </div>
 
     <div class="pcd-band" id="choose-diamond">
     <div class="dtiles-wrap rv">
+      <div class="opt-h opt-h--dia"><span class="opt-l">Diamond Quality <span id="dLab">Lab Grown · EF VVS-VS</span></span></div>
       <div class="dtiles" id="dtiles">
         <div class="dtile sel" data-type="lab" data-grade="EF VVS-VS" data-price="249826">
           <div class="dtile-row">
-            <div class="dtile-info"><div class="dtile-type">Lab Grown</div><div class="dtile-grade">EF VVS-VS · Portuguese cut · IGI</div></div>
-            <div class="dtile-right"><div class="dtile-price">₹ 2,49,826</div><span class="dtile-radio"></span></div>
+            <div class="dtile-info"><div class="dtile-type">Lab Grown <span class="dtile-grade">· EF VVS-VS</span></div></div>
+            <div class="dtile-right"><span class="dtile-radio"></span></div>
           </div>
-          <button class="dtile-brk" type="button">View price breakup <span class="chev">⌄</span></button>
-          <div class="dtile-breakup"></div>
         </div>
         <div class="dtile" data-type="nat" data-grade="EF VVS-VS" data-price="759675">
           <div class="dtile-row">
-            <div class="dtile-info"><div class="dtile-type">Natural</div><div class="dtile-grade">EF VVS-VS · Portuguese cut · IGI</div></div>
-            <div class="dtile-right"><div class="dtile-price">₹ 7,59,675</div><span class="dtile-radio"></span></div>
+            <div class="dtile-info"><div class="dtile-type">Natural <span class="dtile-grade">· EF VVS-VS</span></div></div>
+            <div class="dtile-right"><span class="dtile-radio"></span></div>
           </div>
-          <button class="dtile-brk" type="button">View price breakup <span class="chev">⌄</span></button>
-          <div class="dtile-breakup"></div>
         </div>
         <div class="dtile" data-type="nat" data-grade="GH-VS" data-price="420000">
           <div class="dtile-row">
-            <div class="dtile-info"><div class="dtile-type">Natural</div><div class="dtile-grade">GH-VS · Portuguese cut · IGI</div></div>
-            <div class="dtile-right"><div class="dtile-price">₹ 4,20,000</div><span class="dtile-radio"></span></div>
+            <div class="dtile-info"><div class="dtile-type">Natural <span class="dtile-grade">· GH-VS</span></div></div>
+            <div class="dtile-right"><span class="dtile-radio"></span></div>
           </div>
-          <button class="dtile-brk" type="button">View price breakup <span class="chev">⌄</span></button>
-          <div class="dtile-breakup"></div>
         </div>
         <div class="dtile" data-type="nat" data-grade="SI-IJ" data-price="295000">
           <div class="dtile-row">
-            <div class="dtile-info"><div class="dtile-type">Natural</div><div class="dtile-grade">SI-IJ · Portuguese cut · IGI</div></div>
-            <div class="dtile-right"><div class="dtile-price">₹ 2,95,000</div><span class="dtile-radio"></span></div>
+            <div class="dtile-info"><div class="dtile-type">Natural <span class="dtile-grade">· SI-IJ</span></div></div>
+            <div class="dtile-right"><span class="dtile-radio"></span></div>
           </div>
-          <button class="dtile-brk" type="button">View price breakup <span class="chev">⌄</span></button>
-          <div class="dtile-breakup"></div>
         </div>
       </div>
     </div>
     </div>
+
+      <!-- ring size — dropdown, placed after diamond -->
+      <div class="opt opt-size">
+        <div class="opt-h"><span class="opt-l">Size</span><a class="opt-a" href="#">Size guide</a></div>
+        <div class="size-dd" id="sizeDD">
+          <button class="size-dd-btn" id="sizeDDBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span id="sizeDDVal">12 IND · In stock</span>
+            <svg class="size-dd-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="size-dd-list" id="sizeDDList" role="listbox"></ul>
+        </div>
+      </div>
+
       <!-- engraving (boxed like customize) -->
       <div class="engrave engrave-boxed">
         <div class="engrave-h"><span>Complimentary Engraving <em class="opt">(optional)</em></span><em class="free">Free</em></div>
         <p>Personalise your ring with a custom engraving. Your chosen message will be carefully laser-engraved on the inner band.</p>
-        <button class="engrave-trigger" id="engTrigger" type="button"><span id="engDisplay">Engrave</span><span class="engrave-edit" id="engEdit">Edit</span></button>
+        <button class="engrave-trigger" id="engTrigger" type="button" style="display:none"><span id="engDisplay">Engrave</span><span class="engrave-edit" id="engEdit">Edit</span></button>
+        <input class="engrave-input" type="text" name="properties[Engraving]" maxlength="15" placeholder="Add up to 15 characters…" aria-label="Engraving">
+      </div>
+
+      <!-- SEPARATE price breakup block (Custom HTML/Liquid — sits OUTSIDE the product form) -->
+      <div class="pbreak">
+        <button class="pbreak-toggle" id="pbreakToggle" type="button"><svg class="pbreak-ic" viewBox="0 0 24 24"><path d="M6 2h9l3 3v17l-2.5-1.5L13 22l-2.5-1.5L8 22l-2.5-1.5L3 22V2z" transform="translate(1.5 0) scale(.85)"/><path d="M8 8h8M8 12h8M8 16h5" transform="translate(1.5 0) scale(.85)"/></svg><span>View Price Breakup</span><svg class="pbreak-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="pbreak-body" id="pbreakBody"></div>
       </div>
 
       <button class="cta1" id="atc">Add to Cart</button>
@@ -2124,6 +2213,8 @@ section.pol-sec{padding:0 0 clamp(18px,3vw,30px)!important;margin:0!important}
         <button class="book-btn" id="homeVisit"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Try At Home</button>
         <button class="book-btn" id="storeVisit"><svg viewBox="0 0 24 24"><path d="M4 4h16l-1 5H5L4 4z"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg>Visit Our Store</button>
       </div>
+
+      <p class="help-line">Looking for another size or metal colour? <a href="https://wa.me/919076009085" target="_blank" rel="noopener">Talk to a diamond expert</a></p>
 
       <!-- trust signals — carousel of cards -->
       <div class="tcard-wrap">
@@ -2171,81 +2262,8 @@ section.pol-sec{padding:0 0 clamp(18px,3vw,30px)!important;margin:0!important}
   </div>
 </main>
 
-<!-- ===== PRICE & SAVINGS ===== -->
-<section class="blk psd pd-black">
-  <div class="wrap">
-      <!-- product details (general) -->
-    <div class="shead rv" id="pd-head"><h2>Product <em>details</em></h2></div>
-      <div class="pdt">
-        <p class="pdt-intro">One 3.00 ct Portuguese centre stone — the world's brightest cut — surrounded by 6 marquise petals. All lab grown, all IGI certified, all laser-inscribed.</p>
-
-        <div class="pdt-stats">
-          <div><b>3.63 ct</b><span>Total carat</span></div>
-          <div><b>EF</b><span>Colour grade</span></div>
-          <div><b>VS</b><span>Clarity grade</span></div>
-          <div><b>161</b><span>Facets</span></div>
-        </div>
-
-        <div class="pdt-more" id="pdtMore">
-          <div class="pdt-group">
-            <h4>Diamond quality</h4>
-            <div class="pdt-stats pdt-stats-3">
-              <div><b>Excellent</b><span>Polish</span></div>
-              <div><b>Excellent</b><span>Symmetry</span></div>
-              <div><b>None</b><span>Fluorescence</span></div>
-            </div>
-          </div>
-
-          <div class="pdt-group">
-            <h4>Centre stone</h4>
-            <dl>
-              <div><dt>Shape</dt><dd>Portuguese cut</dd></div>
-              <div><dt>Carat</dt><dd>3.00 ct</dd></div>
-              <div><dt>Quantity</dt><dd>1 piece</dd></div>
-              <div><dt>Quality</dt><dd>EF · VS</dd></div>
-              <div><dt>Origin</dt><dd>Lab grown</dd></div>
-              <div><dt>Facets</dt><dd>161</dd></div>
-            </dl>
-          </div>
-
-          <div class="pdt-group">
-            <h4>Side stones</h4>
-            <dl>
-              <div><dt>Shape</dt><dd>Marquise</dd></div>
-              <div><dt>Carat</dt><dd>0.63 ct total</dd></div>
-              <div><dt>Quantity</dt><dd>6 pieces</dd></div>
-              <div><dt>Quality</dt><dd>EF · VVS-VS</dd></div>
-              <div><dt>Origin</dt><dd>Lab grown</dd></div>
-              <div><dt>Setting</dt><dd>Hand-set petals</dd></div>
-            </dl>
-          </div>
-
-          <div class="pdt-group">
-            <h4>Metal</h4>
-            <dl>
-              <div><dt>Purity</dt><dd>14KT (58.5%) · 18KT (75%)</dd></div>
-              <div><dt>Colours</dt><dd>Yellow · Rose · White</dd></div>
-              <div><dt>Net weight</dt><dd>2.25 g approx · varies by size &amp; karat</dd></div>
-            </dl>
-          </div>
-
-          <div class="pdt-group">
-            <h4>Certification</h4>
-            <dl>
-              <div><dt>Diamond report</dt><dd>IGI · GIA on request</dd></div>
-              <div><dt>Gold hallmark</dt><dd>BIS 14K / 18K</dd></div>
-            </dl>
-          </div>
-        </div>
-
-        <button class="pdt-toggle" id="pdtToggle" type="button" aria-expanded="false">View more</button>
-      </div>
-
-  </div>
-</section>
-
 <!-- ===== POLICIES (own section, end-to-end) ===== -->
-<section class="blk pol-sec" style="padding-top:0">
+<section class="blk pol-sec">
   <div class="wrap">
     <!-- policy accordions -->
     <div class="pol rv">
@@ -2314,37 +2332,10 @@ section.pol-sec{padding:0 0 clamp(18px,3vw,30px)!important;margin:0!important}
   <div class="wrap">
     <div class="shead rv"><h2>Visit a store <em>near you</em></h2></div>
     <div class="stores-tabs rv" id="storeTabs"></div>
-    <div class="store-panel rv">
-      <div class="store-media">
-        <div class="store-img" id="storeImg"></div>
-        <div class="store-top"><span class="store-name" id="storeName"></span><span class="store-rate" id="storeRate"></span></div>
-        <div class="store-hours"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg><span id="storeHours"></span><span class="store-open">● Open Now</span></div>
-      </div>
-      <div class="store-info">
-        <div class="store-block">
-          <h4>Facilities at store</h4>
-          <div class="store-fac" id="storeFac"></div>
-        </div>
-        <div class="store-block">
-          <h4>Services offered</h4>
-          <div class="store-serv">
-            <div class="serv"><span class="serv-ic"><svg viewBox="0 0 24 24"><path d="M4 8l4-3 4 3 4-3 4 3v3H4z"/><path d="M4 11v8h16v-8"/></svg></span>Old Gold Exchange</div>
-            <div class="serv"><span class="serv-ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Try at Home</div>
-            <div class="serv"><span class="serv-ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 14l3-3 2 2 3-4 2 5"/></svg></span>Carat Tester</div>
-            <div class="serv"><span class="serv-ic"><svg viewBox="0 0 24 24"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></svg></span>Jewellery Cleaning</div>
-          </div>
-        </div>
-        <div class="store-block">
-          <h4>Address</h4>
-          <p class="store-addr" id="storeAddr"></p>
-        </div>
-        <div class="store-cta">
-          <a class="store-btn" id="storeDir" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Direct Me</a>
-          <a class="store-btn" id="storeCall"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Us</a>
-        </div>
-        <a class="store-book" href="https://wa.me/919076009085" target="_blank" rel="noopener">Book an Appointment</a>
-      </div>
+    <div class="store-carousel rv" id="storeCarousel">
+      <div class="store-track" id="storeTrack"></div>
     </div>
+    <div class="store-dots" id="storeDots"></div>
   </div>
 </section>
 
@@ -2665,16 +2656,20 @@ function selectTile(t){
   syncDiamond(t.dataset.type,t.dataset.grade,+t.dataset.price);
 }
 document.querySelectorAll('.dtile').forEach(t=>{
-  const brkBtn=t.querySelector('.dtile-brk'),brkBox=t.querySelector('.dtile-breakup');
-  t.addEventListener('click',e=>{if(!e.target.closest('.dtile-brk'))selectTile(t);});
-  brkBtn.addEventListener('click',e=>{
-    e.stopPropagation();
-    if(!brkBox.dataset.filled){brkBox.innerHTML=breakupHTML(+t.dataset.price, t.dataset.grade);brkBox.dataset.filled='1';}
-    const open=t.classList.toggle('brk-open');
-    brkBox.style.maxHeight=open?brkBox.scrollHeight+'px':null;
-    brkBtn.querySelector('.chev').style.transform=open?'rotate(180deg)':'';
-  });
+  t.addEventListener('click',()=>selectTile(t));
 });
+
+/* separate price-breakup block (outside the form) */
+const pbreakEl=document.querySelector('.pbreak'),
+      pbreakBody=document.getElementById('pbreakBody'),
+      pbreakToggle=document.getElementById('pbreakToggle');
+function renderBreak(){ if(pbreakBody) pbreakBody.innerHTML=breakupHTML(price, dgrade); }
+if(pbreakToggle){
+  pbreakToggle.addEventListener('click',()=>{
+    renderBreak();
+    pbreakEl.classList.toggle('open');
+  });
+}
 
 function updateAvail(){
   const el=document.getElementById('availStatus');
@@ -2693,11 +2688,13 @@ function ctx(){
   const csS=document.getElementById('csSize');if(csS)csS.textContent=size+' IND';
   const csD=document.getElementById('csDot');if(csD)csD.className='dot '+(metal.includes('Rose')?'m-r':metal.includes('White')?'m-w':'m-y');
   const csDia=document.getElementById('csDia');if(csDia)csDia.textContent=(dtype==='lab'?'Lab':'Natural')+' · '+dgrade;
+  const dLab=document.getElementById('dLab');if(dLab)dLab.textContent=(dtype==='lab'?'Lab Grown':'Natural')+' · '+dgrade;
   /* drawer live price bar */
   const cpv=document.getElementById('cpbPrice');if(cpv)cpv.textContent=fmt(price);
   const cpl=document.getElementById('cpbVar');
   if(cpl)cpl.textContent=(dtype==='lab'?'Lab Grown':'Natural')+' · '+metal.replace(' Gold','')+' · Size '+size;
   updateAvail();
+  if(typeof pbreakEl!=='undefined'&&pbreakEl&&pbreakEl.classList.contains('open'))renderBreak();
 }
 document.querySelectorAll('#metals .mt').forEach(m=>m.addEventListener('click',()=>{
   document.querySelectorAll('#metals .mt').forEach(x=>x.classList.remove('sel'));
@@ -2706,20 +2703,34 @@ document.querySelectorAll('#metals .mt').forEach(m=>m.addEventListener('click',(
 }));
 
 /* sizes 8–16 — size 12 in stock, rest made-to-order */
-const sz=document.getElementById('sizes');
 const inStockSizes=[12];
-for(let s=8;s<=16;s++){
-  const b=document.createElement('button');b.textContent=s;
-  if(inStockSizes.includes(s))b.classList.add('instock');
-  if(s===12)b.classList.add('sel');
-  b.title=inStockSizes.includes(s)?'In stock':'Made to order';
-  b.addEventListener('click',()=>{
-    sz.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));
-    b.classList.add('sel');size=s;sizeStock=inStockSizes.includes(s)?'in':'made';
-    document.getElementById('szLab').textContent=s+' IND';ctx();
+(()=>{
+  const dd=document.getElementById('sizeDD'),btn=document.getElementById('sizeDDBtn'),
+        val=document.getElementById('sizeDDVal'),list=document.getElementById('sizeDDList');
+  if(!dd)return;
+  for(let s=8;s<=16;s++){
+    const li=document.createElement('li');
+    li.dataset.size=s;li.setAttribute('role','option');
+    li.innerHTML='<span>'+s+' IND</span><span class="st">'+(inStockSizes.includes(s)?'In stock':'Made to order')+'</span>';
+    if(s===12)li.classList.add('sel');
+    li.addEventListener('click',()=>{
+      list.querySelectorAll('li').forEach(x=>x.classList.remove('sel'));
+      li.classList.add('sel');
+      size=s;sizeStock=inStockSizes.includes(s)?'in':'made';
+      val.textContent=s+' IND · '+(inStockSizes.includes(s)?'In stock':'Made to order');
+      const sl=document.getElementById('szLab');if(sl)sl.textContent=s+' IND';
+      dd.classList.remove('open');btn.setAttribute('aria-expanded','false');
+      ctx();
+    });
+    list.appendChild(li);
+  }
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const open=dd.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
   });
-  sz.appendChild(b);
-}
+  document.addEventListener('click',e=>{if(!dd.contains(e.target))dd.classList.remove('open');});
+})();
 
 /* mobile customize drawer */
 (()=>{
@@ -2825,53 +2836,86 @@ function showToast(m){document.getElementById('toastMsg').textContent=m;toast.cl
 document.getElementById('atc').addEventListener('click',()=>showToast('Added to cart · ₹ 2,49,826 · '+metal+' · Size '+size));
 document.getElementById('homeVisit').addEventListener('click',()=>showToast('Home trial requested — our team will WhatsApp you to schedule'));
 document.getElementById('storeVisit').addEventListener('click',()=>showToast('Store visit noted — we\'ll send store details & directions'));
-/* stores section */
+/* stores section — city tabs + per-city store carousel */
 (()=>{
-  const STORES=[
-    {tab:'Mumbai · Dadar',name:'Dadar West',rate:'4.8',hours:'Mon–Sun · 11:00 AM – 9:00 PM',
-     addr:'Shop details — Dadar West, Mumbai, Maharashtra. (Add full address)',
-     fac:['Design Your Ring','Parking Nearby','Certified Advisors','Open All Week'],
-     phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Dadar+West+Mumbai'},
-    {tab:'Mumbai · Oberoi',name:'Goregaon East · Oberoi Mall',rate:'4.8',hours:'Mon–Sun · 11:00 AM – 10:00 PM',
-     addr:'Oberoi Mall, Goregaon East, Mumbai, Maharashtra. (Add full address)',
-     fac:['Inside Oberoi Mall','Valet Parking','Design Your Ring','Open All Week'],
-     phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Oberoi+Mall+Goregaon'},
-    {tab:'Pune',name:'Phoenix Marketcity',rate:'4.9',hours:'Mon–Sun · 11:00 AM – 10:00 PM',
-     addr:'Phoenix Marketcity, Viman Nagar, Pune, Maharashtra 411014. (Verify address)',
-     fac:['Inside Phoenix Mall','Valet Parking','Design Your Ring','Exclusive Offers'],
-     phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Phoenix+Marketcity+Pune'},
-    {tab:'Hyderabad · Banjara',name:'Banjara Hills',rate:'4.8',hours:'Mon–Sun · 11:00 AM – 9:00 PM',
-     addr:'Banjara Hills, Hyderabad, Telangana 500033. (Add full address)',
-     fac:['Design Your Ring','Parking Available','Certified Advisors','Open All Week'],
-     phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Banjara+Hills+Hyderabad'},
-    {tab:'Hyderabad · Kukatpally',name:'Kukatpally',rate:'4.7',hours:'Mon–Sun · 11:00 AM – 9:00 PM',
-     addr:'Kukatpally, Hyderabad, Telangana. (Add full address)',
-     fac:['Design Your Ring','Parking Available','Exclusive Offers','Open All Week'],
-     phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Kukatpally+Hyderabad'},
-    {tab:'Noida',name:'Wave One Mall',rate:'4.8',hours:'Mon–Sun · 11:00 AM – 10:00 PM',
-     addr:'Wave One Mall, Sector 18, Noida, Uttar Pradesh 201301. (Verify address)',
-     fac:['Inside Wave One','Valet Parking','Design Your Ring','Open All Week'],
-     phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Wave+One+Noida'}
+  const CITIES=[
+    {city:'Mumbai',stores:[
+      {name:'Dadar West',rate:'4.8',hours:'Mon–Sun · 11 AM – 9 PM',addr:'902, Kohinoor Square, Shivaji Park, Dadar West, Mumbai 400028',phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Kohinoor+Square+Dadar+West+Mumbai'},
+      {name:'Oberoi Mall · Goregaon East',rate:'4.8',hours:'Mon–Sun · 11 AM – 10 PM',addr:'S-33, Second Floor, Oberoi Mall, Goregaon East, Mumbai 400063',phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Oberoi+Mall+Goregaon+East'}
+    ]},
+    {city:'Pune',stores:[
+      {name:'Phoenix Marketcity',rate:'4.9',hours:'Mon–Sun · 11 AM – 10 PM',addr:'LG-41, Lower Ground Floor, 207 Phoenix Marketcity, Viman Nagar, Pune 411014',phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Phoenix+Marketcity+Viman+Nagar+Pune'}
+    ]},
+    {city:'Hyderabad',stores:[
+      {name:'Banjara Hills',rate:'4.8',hours:'Mon–Sun · 11 AM – 9 PM',addr:'Broadway New Age, Vamsiram BSR 01, Road No 2, Banjara Hills (next to Park Hyatt), Hyderabad 500034',phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Banjara+Hills+Road+No+2+Hyderabad'},
+      {name:'Kukatpally · Lakeshore Mall',rate:'4.7',hours:'Mon–Sun · 11 AM – 9 PM',addr:'L2-38, Second Floor, Lakeshore Mall, Bala Nagar, Kukatpally, Hyderabad 500072',phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Lakeshore+Mall+Kukatpally+Hyderabad'}
+    ]},
+    {city:'Noida',stores:[
+      {name:'Wave One Mall',rate:'4.8',hours:'Mon–Sun · 11 AM – 10 PM',addr:'Shop No. 34, Wave One Mall, Sector 18, Noida 201301',phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Wave+One+Mall+Sector+18+Noida'}
+    ]},
+    {city:'Bangalore',stores:[
+      {name:'Bangalore Boutique',rate:'4.8',hours:'Mon–Sun · 11 AM – 9 PM',addr:'Bangalore, Karnataka — full address to be added',phone:'918200532030',map:'https://maps.google.com/?q=True+Diamond+Bangalore'}
+    ]}
   ];
-  const tabs=document.getElementById('storeTabs');
-  if(!tabs)return;
-  const el=id=>document.getElementById(id);
-  function render(i){
-    const s=STORES[i];
-    el('storeName').textContent=s.name;
-    el('storeRate').innerHTML='★ '+s.rate;
-    el('storeHours').textContent=s.hours;
-    el('storeAddr').textContent=s.addr;
-    el('storeFac').innerHTML=s.fac.map(f=>'<span>'+f+'</span>').join('');
-    el('storeDir').href=s.map;
-    el('storeCall').href='tel:+'+s.phone;
-    [...tabs.children].forEach((b,j)=>b.classList.toggle('on',j===i));
+  const SERVICES=`
+    <div class="serv"><span class="serv-ic"><svg viewBox="0 0 24 24"><path d="M4 8l4-3 4 3 4-3 4 3v3H4z"/><path d="M4 11v8h16v-8"/></svg></span>Old Gold Exchange</div>
+    <div class="serv"><span class="serv-ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Try at Home</div>
+    <div class="serv"><span class="serv-ic"><svg viewBox="0 0 24 24"><path d="M7 12V6.5a1.5 1.5 0 0 1 3 0V11m0-.5V5a1.5 1.5 0 0 1 3 0v6m0-1V6.5a1.5 1.5 0 0 1 3 0V13a6 6 0 0 1-6 6 6 6 0 0 1-5.1-2.8l-1.7-2.8a1.6 1.6 0 0 1 2.5-1.9L7 13"/></svg></span>Hand Analysis</div>
+    <div class="serv"><span class="serv-ic"><svg viewBox="0 0 24 24"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></svg></span>Jewellery Cleaning</div>`;
+  const tabs=document.getElementById('storeTabs'),track=document.getElementById('storeTrack'),dots=document.getElementById('storeDots');
+  if(!tabs||!track)return;
+
+  function slideHTML(s,multi){
+    return `<div class="store-slide"><div class="store-panel">
+      <div class="store-media">
+        <div class="store-img"></div>
+        ${multi?'<button class="store-arrow prev" data-dir="-1" aria-label="Previous store"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button class="store-arrow next" data-dir="1" aria-label="Next store"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>':''}
+        <div class="store-top"><span class="store-name">${s.name}</span><span class="store-rate">★ ${s.rate}</span></div>
+        <div class="store-hours"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg><span>${s.hours}</span><span class="store-open">● Open Now</span></div>
+      </div>
+      <div class="store-info">
+        <div class="store-block"><h4>Services offered</h4><div class="store-serv">${SERVICES}</div></div>
+        <div class="store-block"><h4>Address</h4><p class="store-addr">${s.addr}</p></div>
+        <div class="store-cta">
+          <a class="store-btn" href="${s.map}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Direct Me</a>
+          <a class="store-btn" href="tel:+${s.phone}"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call Us</a>
+        </div>
+        <a class="store-book" href="https://wa.me/919076009085" target="_blank" rel="noopener">Book an Appointment</a>
+      </div>
+    </div></div>`;
   }
-  STORES.forEach((s,i)=>{
-    const b=document.createElement('button');b.className='stab'+(i===0?' on':'');b.textContent=s.tab;
-    b.addEventListener('click',()=>render(i));tabs.appendChild(b);
+  function goTo(i){const cell=track.children[i];if(cell)track.scrollTo({left:cell.offsetLeft-track.offsetLeft,behavior:'smooth'});}
+  function curIdx(){let idx=0,min=1e9;[...track.children].forEach((c,i)=>{const d=Math.abs(c.offsetLeft-track.offsetLeft-track.scrollLeft);if(d<min){min=d;idx=i;}});return idx;}
+  function updateDots(){
+    let idx=0,min=1e9;
+    [...track.children].forEach((c,i)=>{const d=Math.abs(c.offsetLeft-track.offsetLeft-track.scrollLeft);if(d<min){min=d;idx=i;}});
+    [...dots.children].forEach((d,i)=>d.classList.toggle('on',i===idx));
+  }
+  function selectCity(ci){
+    const c=CITIES[ci];
+    const multi=c.stores.length>1;
+    track.innerHTML=c.stores.map(s=>slideHTML(s,multi)).join('');
+    dots.innerHTML='';
+    if(multi){
+      c.stores.forEach((s,i)=>{const b=document.createElement('button');if(i===0)b.className='on';
+        b.addEventListener('click',()=>goTo(i));
+        dots.appendChild(b);});
+    }
+    track.querySelectorAll('.store-arrow').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const dir=+btn.dataset.dir,n=track.children.length;
+        let i=curIdx()+dir;if(i<0)i=n-1;if(i>=n)i=0;goTo(i);
+      });
+    });
+    track.scrollLeft=0;
+    [...tabs.children].forEach((b,j)=>b.classList.toggle('on',j===ci));
+  }
+  track.addEventListener('scroll',()=>{if(dots.children.length)updateDots();},{passive:true});
+  CITIES.forEach((c,i)=>{
+    const b=document.createElement('button');b.className='stab'+(i===0?' on':'');b.textContent=c.city;
+    b.addEventListener('click',()=>selectCity(i));tabs.appendChild(b);
   });
-  render(0);
+  selectCity(0);
 })();
 
 /* explore carousel dots */
